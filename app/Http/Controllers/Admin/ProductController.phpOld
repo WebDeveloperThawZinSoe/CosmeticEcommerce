@@ -1,0 +1,176 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Models\ProductCategory;
+use App\Models\SubCategory;
+use Illuminate\Http\Request;
+use App\Models\ProductVariants; 
+use App\Models\Brand;
+
+class ProductController extends Controller
+{
+    public function index()
+    {
+        $products = Product::with('category', 'subCategory')->orderBy("id","desc")->get();
+        $categories = ProductCategory::all();
+        $subCategories = SubCategory::all();
+
+        return view('admin.products.index', compact('products', 'categories', 'subCategories'));
+    }
+
+    public function create()
+    {
+        $categories = ProductCategory::all();
+        $subCategories = SubCategory::all();
+        $brands = Brand::all();
+        return view('admin.products.create', compact('categories', 'subCategories','brands'));
+    }
+
+
+    public function store(Request $request){
+        
+    }
+
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'product_type' => 'required|in:single,variant',
+    //         'name' => 'required|string|max:255',
+    //         'brand' => 'required|string|max:255',
+    //         'category_id' => 'required|exists:product_categories,id',
+    //         'sub_category_id' => 'required|exists:sub_categories,id',
+    //         'description' => 'required|string',
+    //         'status' => 'required|boolean',
+    //         'price' => 'required_if:product_type,single|numeric',
+    //         'stock' => 'required_if:product_type,single|integer',
+    //         'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    //         'variants.*.attribute_name' => 'required_if:product_type,variant|string',
+    //         'variants.*.attribute_value' => 'required_if:product_type,variant|string',
+    //         'variants.*.price' => 'required_if:product_type,variant|numeric',
+    //         'variants.*.stock' => 'required_if:product_type,variant|integer',
+    //         'variants.*.image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    //     ]);
+
+    //     try {
+    //         \DB::beginTransaction();
+
+    //         $product = Product::create([
+    //             'product_type' => $request->product_type,
+    //             'name' => $request->name,
+    //             'category_id' => $request->category_id,
+    //             'sub_category_id' => $request->sub_category_id,
+    //             'description' => $request->description,
+    //             'status' => $request->status,
+    //             'price' => $request->product_type === 'single' ? $request->price : null,
+    //             'stock' => $request->product_type === 'single' ? $request->stock : null,
+    //         ]);
+
+    //         if ($request->hasFile('images')) {
+    //             foreach ($request->file('images') as $image) {
+    //                 $imagePath = $this->moveImage($image, 'product_images');
+    //                 // Assuming a media relation
+    //                 $product->medias()->create(['path' => $imagePath]);
+    //             }
+    //         }
+
+    //         if ($request->product_type === 'variant') {
+    //             foreach ($request->variants as $variantData) {
+    //                 $variantImage = $variantData['image'] ?? null;
+    //                 $variantImagePath = $variantImage ? $this->moveImage($variantImage, 'variant_images') : null;
+
+    //                 $product->variants()->create([
+    //                     'attribute_name' => $variantData['attribute_name'],
+    //                     'attribute_value' => $variantData['attribute_value'],
+    //                     'price' => $variantData['price'],
+    //                     'stock' => $variantData['stock'],
+    //                     'image' => $variantImagePath,
+    //                 ]);
+    //             }
+    //         }
+
+    //         \DB::commit();
+    //         return redirect()->route('admin.products.index')->with('success', 'Product created successfully.');
+    //     } catch (\Exception $e) {
+    //         \DB::rollback();
+    //         return redirect()->back()->withErrors('An error occurred while creating the product. Please try again.');
+    //     }
+    // }
+
+
+    private function moveImage($image, $folder)
+    {
+        // Create the folder if it doesn't exist
+        $path = public_path($folder);
+        if (!file_exists($path)) {
+            mkdir($path, 0755, true);
+        }
+
+        // Generate a unique file name for the image
+        $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
+
+        // Move the uploaded image to the desired directory
+        $image->move($path, $imageName);
+
+        // Return the path for the image
+        return "$folder/$imageName";
+    }
+
+    
+    
+    
+
+    public function edit(Product $product)
+    {
+        $categories = ProductCategory::all();
+        $subCategories = SubCategory::all();
+        return view('admin.products.edit', compact('product', 'categories', 'subCategories'));
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        // Validate the incoming request data
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'stock' => 'nullable|integer',
+            'category_id' => 'required|exists:product_categories,id',
+            'sub_category_id' => 'nullable|exists:sub_categories,id',
+            'image' => 'nullable|image',
+            'description' => 'nullable|string',
+            'min_stock' => 'nullable|integer',
+        ]);
+    
+        // Update the product details
+        $product->update($validated);
+    
+        // Check if a new image is uploaded
+        if ($request->hasFile('image')) {
+            // Delete the old image file if it exists
+            if ($product->image && file_exists(public_path($product->image))) {
+                unlink(public_path($product->image));
+            }
+    
+            // Upload the new image
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('product'), $imageName);
+            $product->image = 'product/' . $imageName;
+        }
+    
+        // Save the updated product
+        $product->save();
+    
+        // Redirect back with a success message
+        return redirect()->route('admin.products.index')->with('success', 'Product updated successfully.');
+    }
+    
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+        return redirect()->route('admin.products.index')->with('success', 'Product deleted successfully.');
+    }
+}

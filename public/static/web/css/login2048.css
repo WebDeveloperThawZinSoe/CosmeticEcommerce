@@ -1,0 +1,385 @@
+.sign-form.register .checked label:after {
+    background-image: url(../../mobile/image/public_ico.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    content: '';
+    display: inline-block;
+}
+
+.sign-register {
+    background: #03161e;
+    padding: 32px 10px;
+}
+
+.sign-register .sign-select {
+    margin-bottom: 20px;
+}
+
+.sign-select ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-select ul li {
+    font-family: 'Oswald';
+    margin-right: 45px;
+
+}
+
+.sign-select ul li:last-child {
+    margin: 0;
+}
+
+.sign-select ul li.active {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+}
+
+.sign-form {
+    display: none;
+}
+
+.sign-form.register {
+    display: none;
+}
+
+.sign-form.display {
+    display: block;
+    animation: 0.4s ease 0s 1 normal none running signShow;
+    -webkit-animation: 0.4s ease 0s 1 normal none running signShow;
+    -o-animation: 0.4s ease 0s 1 normal none running signShow;
+}
+
+@keyframes signShow {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.sign-form .input-box {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.sign-form .input-box input {
+    background: none;
+    border: 1px solid #605b53;
+    width: 100%;
+    height: 48px;
+    border-radius: 5px;
+    padding-left: 40px;
+    color: #fff;
+}
+
+.sign-form .input-box input::placeholder {
+    color: #605b53;
+}
+
+.sign-form .input-box.email i {
+    background-position: 0 -80px;
+    width: 20px;
+    height: 17px;
+    background-image: url(../../mobile/image/public_ico.png);
+}
+
+.sign-form .input-box.pass i,
+.sign-form .input-box.repass i {
+    background-position: -30px -80px;
+    width: 17px;
+    height: 18px;
+    background-image: url(../../mobile/image/public_ico.png);
+}
+
+.sign-form .input-box i {
+    position: absolute;
+    top: 15px;
+    left: 17px;
+}
+
+.sign-form .forgot-pass a {
+    display: block;
+    text-align: right;
+    color: #ad2319;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.sign-form button {
+    height: 50px;
+    width: 100%;
+    background: linear-gradient(to bottom, #3e1315, #f29d0a);
+    color: #fff;
+    font-size: 16px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.sign-form button i {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border-left: 2px solid #fff;
+    animation: rotation 1s linear infinite;
+    margin: auto;
+    display: none;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.sign-form button.error {
+    background: rgb(237, 85, 101);
+}
+
+.sign-form button.error::before {
+    background-image: url(../../mobile/image/public_ico.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    display: inline-block;
+    content: '';
+    width: 13px;
+    height: 13px;
+    background-position: -180px -200px;
+}
+
+.sign-form .shade {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+.sign-form .shade p {
+    margin-bottom: 10px;
+}
+
+.sign-form.register .checked.accept {
+    margin-top: 20px;
+    color: #fff;
+}
+
+.sign-form.register .checked {
+    position: relative;
+    padding-left: 25px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.sign-form.register .checked input {
+    position: absolute;
+    z-index: 99;
+    left: -2px;
+    top: -2px;
+}
+
+.sign-form.register .checked label {
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(29, 74, 95, 0.6);
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.sign-form.register .checked label:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    width: 10px;
+    height: 7px;
+    background-position: -70px -60px;
+    opacity: 0;
+}
+
+.sign-form.register .checked input[type=checkbox]:checked+label:after {
+    opacity: 1;
+}
+
+.sign-form.register .checked span {
+    font-size: 12px;
+}
+
+.sign-form.register .checked span a {
+    color: #ad2319;
+}
+
+.sign-register .loginSignBtn {
+    position: relative;
+}
+
+.errorTips {
+    background: #fff;
+    color: #000;
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    top: -58px;
+    padding: 10px 20px 10px 10px;
+    border-radius: 3px;
+}
+
+.errorTips p {
+    margin-bottom: 5px;
+    font-family: 'Oswald';
+}
+
+.errorTips::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    position: absolute;
+    bottom: -4px;
+    right: 10px;
+    transform: rotate(45deg);
+}
+
+.errorTips span {
+    color: #393c59;
+}
+
+
+.sign-register .dialog {
+    width: 90%;
+    background: #ffffff;
+    position: absolute;
+    top: 4rem;
+    left: 5%;
+    border-radius: 0.3rem;
+    display: none;
+    padding: 0.2rem 0.2rem 1rem;
+}
+
+.sign-register .dialog h2 {
+    color: #0a0f21;
+    padding-top: 0.6rem;
+    padding-bottom: 0.4rem;
+    text-align: center;
+}
+
+.sign-register .dialog i {
+    font-size: 0.8rem;
+    position: relative;
+    float: right;
+    top: -0.5rem;
+    right: 0.2rem;
+    color: #0a0f21;
+}
+
+.sign-register .dialog p {
+    padding-bottom: 0.1rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    color: #0a0f21;
+}
+.sign-register .tips{
+    color:gold;
+    font-size: 12px;
+}
+
+
+
+
+
+
+.bind_page .sign-form {
+    display: block;
+}
+
+.bind_page {
+    width: 400px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    border-radius: 10px;
+}
+
+.bind_page .bind_show {
+    display: none;
+}
+.bind_page .bind_show.display {
+    display: block;
+}
+.bind_page .login_binding_text {
+    text-align: center;
+    margin: 0 0 20px;
+}
+.bind_page .sign_title h2 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+.shade .shade_list {
+    display: flex;
+    justify-content: center;
+}
+.shade .shade_list span {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    line-height: 30px;
+    border-radius: 50%;
+    background: #10161a;
+    margin-right: 8px;
+	margin-top: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shade .shade_list span:last-child {
+    margin-right: 0;
+}
+.shade .shade_list span img {
+    width: 40px;
+    height: 40px;
+}
+.shade .shade_list span.facebook {
+    background: #217ce4;
+}
+.shade .shade_list span.google {
+    background: #4f92ef;
+}
+.shade .shade_list span.reddit {
+    background: #e14c36 ;
+}
+.shade .shade_list span.discord {
+    background: #788bd2 ;
+}
+.shade .shade_list span.steam {
+    background: #2e7fa6;
+}
+.shade .shade_list span.twitch{
+    background: #4a358a ;
+}
+.shade .shade_list span.twitter {
+    background: #329be3;
+}
+.shade .shade_list span.youtube{
+    background: #ed1e26;
+}
+
+
+@media (max-width: 1024px) {
+    .bind_page {
+        width: 100%;
+        margin: 0;
+        padding: 32px 10px;
+    }
+}

@@ -1,0 +1,1337 @@
+/* affiliate */
+.mobile_title,
+.affiliateMain .mobile_order {
+    display: none;
+}
+
+.affiliate-main h2 {
+    font-size: 24px;
+    margin: 20px 0;
+    color: #000;
+}
+
+.affiliateMain .affiliate-content {
+    margin-top: 20px;
+    position: relative;
+}
+
+.affiliateMain .affiliate-contact {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.affiliateMain .affiliate-contact a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    background-color: #03161e;
+    border-radius: 10px;
+    width: 49%;
+    padding-left: 30px;
+    font-size: 18px;
+}
+
+.affiliateMain .affiliate-contact a img {
+    width: 20px;
+    height: 20px;
+    margin-top: 0;
+    margin-right: 10px;
+}
+
+.affiliateMain .affiliate-content>img {
+    margin-top: 0;
+    display: block;
+    border-radius: 10px;
+}
+
+.affiliateMain .affiliate-content>img.mobile_img {
+    display: none;
+}
+
+
+.affiliateMain .affiliate-content .affiliate-contact h3 {
+    color: #a42721;
+    font-size: 35px;
+    margin-bottom: 17px;
+}
+
+.affiliateMain .affiliate-content .affiliate-contact ul {
+    display: flex;
+}
+
+.affiliateMain .affiliate-content .affiliate-contact ul li {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #fff;
+    margin-right: 135px;
+}
+
+.affiliateMain .affiliate-content .affiliate-contact ul li img {
+    width: 20px;
+    margin-top: 0;
+    margin-right: 10px;
+}
+
+
+.affiliateMain .affiliate-home-index {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #03161e;
+    margin-top: 20px;
+    padding: 30px;
+}
+
+.affiliateMain .affiliate-home-index .a-left {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #1f203c;
+}
+
+.affiliateMain .affiliate-home-index .a-left ul {
+    display: flex;
+}
+
+.affiliateMain .affiliate-home-index .a-left li {
+    margin-right: 10px;
+}
+
+.affiliateMain .affiliate-home-index .a-left li a:hover {
+    color: #f29d0a;
+}
+
+.affiliateMain .affiliate-home-index .a-left li.active a {
+    background-image: linear-gradient(0deg,
+            #f29d0a 0%,
+            #3e1315 100%),
+        linear-gradient(#f29d0a,
+            #f29d0a);
+    background-blend-mode: normal,
+        normal;
+    color: #fff;
+}
+
+.affiliateMain .affiliate-home-index .a-left li a {
+    height: 48px;
+    background-color: #1f203c;
+    border-radius: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 40px;
+}
+
+.affiliateMain .affiliate-home-index .a-right {
+    padding-top: 30px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.affiliateMain .affiliate-home-index .a-right h4 {
+    color: #f29d0a;
+    margin-bottom: 5px;
+}
+
+.affiliateMain .affiliate-home-index .a-right p {
+    margin-bottom: 20px;
+    line-height: 20px;
+    color: #605b53;
+}
+
+.affiliateMain .affiliate-home-index .a-right ul {
+    margin-bottom: 20px;
+    padding-right: 400px;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right p.title {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right .input-box {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right .input-box p {
+    min-width: 120px;
+    color: #605b53;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right.sign-right .input-box p {
+    min-width: 137px;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right .input-box p em {
+    color: gold;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right .input-box input {
+    width: 340px;
+    height: 46px;
+    border-radius: 46px;
+    border: 1px solid #605b53;
+    background: none;
+    color: #fff;
+    padding-left: 20px;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right .affiliate-btn {
+    margin-top: 33px;
+    position: relative;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right .logSinBtn {
+    /* width: 120px; */
+    padding: 10px 30px;
+    /* height: 46px; */
+    background-image: linear-gradient(0deg,
+            #f29d0a 0%,
+            #3e1315 100%),
+        linear-gradient(#238be4,
+            #238be4);
+    background-blend-mode: normal,
+        normal;
+    color: #fff;
+    border-radius: 23px;
+    font-size: 16px;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right button i {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border-left: 2px solid #fff;
+    margin: auto;
+    animation: rotation 1s linear infinite;
+    display: none;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right .logSinBtn:hover {
+    background: #f29d0a;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right.sign-right {
+    padding-bottom: 160px;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right .new-account {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #1f203c;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right .new-account p.title {
+    margin-bottom: 25px;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right .new-account .logToSign {
+    background: #1f203c;
+    color: #fff;
+    /* display: block; */
+    text-align: center;
+    line-height: 46px;
+    margin-top: 40px;
+    padding:10px 30px;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right .new-account .logToSign:hover {
+    background: #f29d0a;
+}
+
+.affiliateMain .affiliate-home-index .a-right .tips {
+    color: gold;
+    padding-left: 120px;
+    padding-top: 10px;
+}
+
+.affiliateMain .affiliate-home-index .a-right.sign-right .tips {
+    padding-left: 137px;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right .affiliate-btn .errorTips {
+    right: 88%;
+    white-space: nowrap;
+    top: -75px;
+}
+
+.affiliateMain .affiliate-home-index .logSin-right .affiliate-btn .errorTips p {
+    margin-bottom: 10px;
+}
+
+
+.affiliateMain .affiliate-home-index .a-profile.a-right .input-box p {
+    min-width: 150px;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .changePassword .tips {
+    padding-left: 150px;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .changePassword {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1f203c;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .changeAccount ul li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .changeAccount ul li .input-box {
+    margin-top: 0;
+    display: block;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .changeAccount ul li .input-box p {
+    min-width: 120px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .changeAccount ul li .input-box input {
+    width: 300px;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .changeAccount ul li .commonRadio input {
+    width: 20px;
+    height: 20px;
+    appearance: auto;
+    padding: 0;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .changeAccount ul li .commonRadio div {
+    display: flex;
+    align-items: center;
+    min-width: 250px;
+    height: 46px;
+    border-radius: 46px;
+    border: 1px solid #605b53;
+    width: 300px;
+    padding: 0 10px;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .changeAccount ul li .commonRadio span {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-right: 40px;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .social_media .select_input {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .social_media .select_input.required input {
+    border: 1px solid #ff0000 !important;
+    box-shadow: 0px 0px 5px 1px #ff0000;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .social_media .select_input .select_title {
+    height: 46px;
+    border-radius: 46px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #605b53;
+    margin-right: 10px;
+    justify-content: space-between;
+    padding: 0 10px;
+    width: 140px;
+    cursor: pointer;
+    min-width: 140px;
+    color: #fff;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .social_media .select_input .select_title i {
+    width: 12px;
+    height: 7px;
+    background-position: -32px 0px;
+    background-image: url(../../pc/image/public_ico.png);
+}
+
+.affiliateMain .affiliate-home-index .a-profile .social_media .select_input .select_title.required {
+    border: 1px solid #ff0000 !important;
+    box-shadow: 0px 0px 5px 1px #ff0000;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .social_media .select_input .add_delete p {
+    background-color: #f29d0a;
+    color: #fff;
+    font-size: 12px;
+    margin-bottom: 2px;
+    min-width: auto;
+    padding: 0 20px;
+    border-radius: 22px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .social_media .select_input .select_list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 140px;
+    background-color: #fff;
+    box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 12%);
+    color: #000;
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .social_media .select_input .select_list p {
+    height: 30px;
+    padding-left: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.affiliateMain .affiliate-home-index .a-profile .social_media .select_input .select_list p:hover {
+    color: #f29d0a;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .a-right .userInfo {
+    display: flex;
+    border-bottom: 1px solid #1f203c;
+    margin-bottom: 20px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .a-right .userInfo p {
+    color: #f29d0a;
+    margin-right: 50px;
+    margin-bottom: 20px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .a-right .userInfo p span {
+    color: #fff;
+}
+.affiliateMain .affiliate-home-index.isLogin .a-right .success_copy {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: #f0f9eb;
+    color: #67c23a;
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+    transform: translateX(-50%);
+    z-index: 999;
+    display: none;
+    border-radius: 10px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .a-right .success_copy.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .a-right .userInfo p i {
+    font-size: 16px;
+    cursor: pointer;
+}
+.affiliateMain .affiliate-home-index.isLogin .a-right .userInfo p i:hover {
+    text-decoration: underline;
+}
+.affiliateMain .affiliate-home-index.isLogin .changeAccount .country .select-country {
+    position: relative;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .changeAccount .country .select-country>p {
+    height: 46px;
+    line-height: 46px;
+    width: 300px;
+    border: 1px solid #605b53;
+    color: #fff;
+    border-radius: 46px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .changeAccount .required.country .select-country>p {
+    border: 1px solid #ff0000;
+    box-shadow: 0px 0px 5px 1px #ff0000;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .changeAccount .country .select-country i {
+    width: 12px;
+    height: 7px;
+    background-position: -32px 0px;
+    background-image: url(../../pc/image/public_ico.png);
+}
+
+.affiliateMain .affiliate-home-index.isLogin .changeAccount .country .select-country .country-ul {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    z-index: 9;
+    overflow-y: auto;
+    max-height: 300px;
+    display: none;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .changeAccount .country .select-country .country-ul.display {
+    display: block;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .changeAccount .country .select-country .country-ul p {
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .changeAccount .country .select-country .country-ul p:hover,
+.affiliateMain .affiliate-home-index.isLogin .changeAccount .country .select-country .country-ul p.active {
+    color: #f29d0a;
+}
+
+
+.affiliateMain .affiliate-home-index.isLogin .a-order-title {
+    color: #fff;
+    font-size: 16px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .spinner {
+    margin-top: 40px;
+    display: block;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .noOrder {
+    text-align: center;
+    color: #fff;
+    margin-top: 30px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list table {
+    width: 100%;
+    text-align: center;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .order-info-box {
+    color: #e0e1ff;
+}
+
+.order-info-box .goods-list {
+    display: none;
+    background: rgb(2, 15, 37);
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list table thead td {
+    color: #fff;
+    padding: 9px 0;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list table thead td:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list table thead td:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list table thead tr.bg-gradient {
+    background: #0e202a;
+    border-radius: 5px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list table tbody td {
+    font-size: 12px;
+    padding: 30px 0;
+    border-bottom:1px solid #1f203c;
+    color: #e0e1ff;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list table tbody td .price {
+    font-size: 16px;
+    color: #f29d0a;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list table tbody td.btn span {
+    height: 40px;
+    display: inline-block;
+    border-radius: 5px;
+    line-height: 40px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list td.btn span.hide {
+    background: #072750;
+    margin-right: 5px;
+    color: #00aeff;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list td.btn span.hide:hover {
+    background: #272852;
+    color: #fff;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list td.btn span.live-chat {
+    color: #fff;
+    background: -webkit-linear-gradient(top, #18f6d9, #0ca1ec);
+    background: -o-linear-gradient(bottom, #18f6d9, #0ca1ec);
+    background: -moz-linear-gradient(bottom, #18f6d9, #0ca1ec);
+    background: linear-gradient(to bottom, #18f6d9, #0ca1ec);
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list td.btn span.live-chat:hover {
+    background: -webkit-linear-gradient(top, #775cdc, #2d78e6);
+    background: -o-linear-gradient(bottom, #775cdc, #2d78e6);
+    background: -moz-linear-gradient(bottom, #775cdc, #2d78e6);
+    background: linear-gradient(to bottom, #775cdc, #2d78e6);
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .goods-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px 20px 20px;
+    border-bottom: 1px solid #07254c;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .goods-info .price {
+    font-size: 16px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .goods-info .qty {
+    color: #fff;
+    margin-right: 100px;
+    font-size: 12px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .goods-info .goods-title {
+    display: flex;
+    align-items: center;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .goods-info .goods-title div {
+    font-size: 12px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .goods-info .goods-title .goodsImage {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .goods-info .goods-title img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .payment {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 35px 20px 20px;
+    border-bottom: 1px solid #07254c;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .method p {
+    margin-bottom: 16px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .payment .pay-price div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .payment .pay-price div label {
+    display: inline-block;
+    margin-right: 65px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .payment .pay-price div .price {
+    font-size: 16px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .payment .pay-price div.subtotal {
+    font-size: 14px;
+    border-top: 1px solid #07254c;
+    padding-top: 15px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .payment .pay-price div.subtotal .price {
+    color: #00aeff;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .desc {
+    padding: 0 35px 20px 20px;
+    border-bottom: 1px solid #07254c;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .desc>p {
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .desc ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .desc ul li {
+    color: #0b85ea;
+    margin-bottom: 20px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .desc ul li.player {
+    font-size: 12px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .desc ul li.other {
+    width: 49%;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .desc ul li.other:nth-child(2n) {
+    text-align: right;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .desc ul li span {
+    color: #7073c9;
+    margin-right: 20px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .table-bottom tbody td {
+    border-bottom: none;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .desc ul li.upimg {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .desc ul li.upimg img {
+    max-width: 100px;
+    cursor: pointer;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .desc ul li.upimg .bigImg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .7);
+    z-index: 100;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .desc ul li.upimg .bigImg img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1000px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .desc ul li.upimg .bigImg i {
+    background: url(../../pc/image/swipebox-icons.html);
+    width: 20px;
+    height: 24px;
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-list .table-bottom tbody td {
+    border-bottom: none;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .settlement {
+    background: #1f203c;
+    margin-top: 10px;
+    height: 40px;
+    text-align: right;
+    line-height: 40px;
+    color: #fff;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .settlement i {
+    color: #aa2116;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-cash {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-cash button {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    background: #f29d0a;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .order-cash button:hover {
+    background: -webkit-linear-gradient(top, #aa2116, #ff4b69);
+    background: -o-linear-gradient(bottom, #aa2116, #ff4b69);
+    background: -moz-linear-gradient(bottom, #aa2116, #ff4b69);
+    background: linear-gradient(to bottom, #aa2116, #ff4b69);
+}
+
+.affiliateMain .affiliate-home-index.isLogin .exchangeCash {
+    display: none;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .exchangeCash.display {
+    display: block;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .exchangeCash input {
+    padding-left: 20px;
+}
+
+
+.affiliateMain .affiliate-home-index.isLogin .no-withdrawal .exchangeCash {
+    color: #000;
+    font-size: 14px;
+    padding: 20px 40px 5px 30px;
+}
+.affiliateMain .affiliate-home-index.isLogin .no-withdrawal .exchangeCash p {
+    font-size: 16px;
+}
+.affiliateMain .affiliate-home-index.isLogin .exchangeCash .payment {
+    display: flex;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .exchangeCash .payment span {
+    display: flex;
+    margin-right: 20px;
+}
+
+.affiliateMain .affiliate-home-index.isLogin .exchangeCash .payment input {
+    width: 20px;
+    height: 20px;
+    appearance: auto;
+    padding: 0;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.audit_wait {
+    text-align: center;
+    font-size: 16px;
+}
+
+.audit_wait img {
+    width: 150px;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.exchangeCash-warpper {
+    display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px;
+	z-index: 200;
+	text-align: center;
+	margin: 0;
+    background-color: #faf9f8;
+    width: 480px;
+    padding: 25px 30px 25px;
+	color: #000;
+    border-radius: 5px;
+}
+
+.exchangeCash-warpper button {
+	color: #fff;
+    background: #f29d0a;
+    cursor: pointer;
+    /* width: 160px; */
+    padding: 0 25px;
+    height: 46px;
+    font-size: 16px;
+    border-radius: 2px;
+	margin: 20px auto 0;
+    border-radius: 5px;
+}
+
+@media (max-width: 1024px) {
+    .affiliate-main {
+        padding: 80px 10px;
+    }
+
+    .affiliate-main h2 {
+        font-size: 20px;
+        margin: 0 0 10px;
+    }
+
+    .mobile_title {
+        display: block;
+    }
+
+    .affiliateMain .affiliate-content>img.mobile_img {
+        display: block;
+    }
+
+    .affiliateMain .affiliate-content>img.pc_img {
+        display: none;
+    }
+
+    .affiliateMain .affiliate-contact {
+        display: block;
+    }
+
+    .affiliateMain .affiliate-contact a {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .affiliateMain .affiliate-home-index .a-left ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+
+    .affiliateMain .affiliate-home-index .a-left ul li {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    .affiliateMain .affiliate-home-index {
+        padding: 30px 10px;
+    }
+
+    .affiliateMain .affiliate-home-index.isLogin .a-right .userInfo {
+        display: block;
+        border: none;
+    }
+
+    .affiliateMain .affiliate-home-index.isLogin .a-right .userInfo p {
+        margin-right: 0;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+    .affiliateMain .affiliate-home-index.isLogin .a-right .userInfo p i {
+        font-size: 14px;
+    }
+    .affiliateMain .affiliate-home-index .a-left {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .affiliateMain .affiliate-home-index .a-left::after {
+        display: none;
+    }
+
+    .affiliateMain .affiliate-home-index .a-left li a {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .affiliateMain .affiliate-home-index .logSin-right .input-box {
+        display: block;
+    }
+
+    .affiliateMain .affiliate-home-index .a-profile .changePassword .tips {
+        padding: 0;
+    }
+
+    .affiliateMain .affiliate-home-index .a-profile.a-right .input-box p {
+        margin-bottom: 5px;
+    }
+
+    .affiliateMain .affiliate-home-index .a-profile .changeAccount ul li {
+        display: block;
+    }
+
+    .affiliateMain .affiliate-home-index .a-profile .changeAccount ul li .input-box input {
+        width: 100%;
+    }
+
+    .affiliateMain .affiliate-home-index .a-profile .changeAccount ul li .input-box {
+        margin-top: 20px;
+    }
+
+    .affiliateMain .affiliate-home-index.isLogin .changeAccount .country .select-country>p {
+        width: 100%;
+    }
+
+    .affiliateMain .affiliate-home-index.isLogin .changeAccount .country .select-country i {
+        background-image: url(../../pc/image/public_ico.png);
+    }
+
+    .affiliateMain .affiliate-home-index .logSin-right .logSinBtn {
+        width: 100%;
+        border-radius: 46px;
+    }
+
+    .affiliateMain .pc_order {
+        display: none;
+    }
+
+    .affiliateMain .mobile_order {
+        display: block;
+        padding: 10px 0 40px;
+    }
+
+
+
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list {
+        margin-top: 12px;
+        font-size: 12px;
+        background: #061837;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-slide {
+        display: none;
+        padding-bottom: 20px;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-no {
+        height: 40px;
+        color: #fff;
+        font-family: 'Roboto';
+        font-size: 12px;
+        padding-left: 8px;
+        line-height: 40px;
+        background: -webkit-linear-gradient(left, #5edeab, #1e55d3);
+        background: -o-linear-gradient(right, #18f6d9, #0ca1ec);
+        background: -moz-linear-gradient(right, #18f6d9, #0ca1ec);
+        background: linear-gradient(to right, #18f6d9, #0ca1ec);
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-date {
+        display: flex;
+        color: #7073c9;
+        justify-content: space-between;
+        padding: 10px 11px;
+        border-bottom: 1px solid #07254c;
+        font-family: 'Roboto';
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-info .item {
+        display: flex;
+        color: #e0e1ff;
+        padding: 15px 11px;
+        border-bottom: 1px solid #07254c;
+        align-items: center;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-info .item .itemImage {
+        margin-right: 15px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-info .item img {
+        max-width: 60px;
+        max-height: 60px;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-info .item .item-title {
+        width: 100%;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-info .item .qty {
+        margin-top: 7px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-info .item .qty span {
+        color: #fff;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-info .item .qty span.price {
+        color: #e0e1ff
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-desc {
+        padding: 10px 10px;
+        border-bottom: 1px solid #07254c;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-desc ul {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-desc ul li {
+        color: #0b85ea;
+        margin-bottom: 10px;
+        width: 49%;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-desc ul li:nth-child(2n) {
+        text-align: right;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-desc ul li span {
+        color: #7073c9;
+        margin-right: 5px;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-desc p {
+        color: #fff;
+        margin-bottom: 10px;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-desc ul li.upimg {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-desc ul li.upimg img {
+        max-width: 100px;
+    }
+
+    .order-list .order-desc ul li.upimg .bigImg {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, .7);
+        z-index: 100;
+    }
+
+    .order-list .order-desc ul li.upimg .bigImg img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 100%;
+    }
+
+    .order-list .order-desc ul li.upimg .bigImg i {
+        background: url(../../pc/image/swipebox-icons.html);
+        width: 20px;
+        height: 24px;
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-price {
+        padding: 19px 18px 0;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-price>div {
+        display: flex;
+        justify-content: space-between;
+        color: #e0e1ff;
+        margin-bottom: 20px;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-price>div .price {
+        color: #fff;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-price>div.subtotal-price {
+        font-size: 14px;
+        border-top: 1px solid #07254c;
+        padding-top: 10px;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .order-list .order-price>div.subtotal-price .price {
+        font-size: 18px;
+        color: #aa2116;
+    }
+
+    #order-list .noOrder {
+        height: 50%;
+        padding-top: 50px;
+        text-align: center;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order h4 {
+        margin: 20px 0 30px;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .settlement {
+        color: #fff;
+        background: #0e202a;
+        display: flex;
+        padding: 10px;
+        margin-top: 20px;
+        justify-content: space-between;
+        align-items: center;
+        height: auto;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .settlement p {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+        color: #fff;
+        text-align: left;
+        font-size: 12px;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .settlement span i {
+        color: #f29d0a;
+    }
+
+    .affiliate-main .affiliate-home-index .mobile_order .settlement button {
+        height: 40px;
+        font-size: 12px;
+        color: #fff;
+        background: #f29d0a;
+    }
+
+    .wrapper {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 99;
+        display: none;
+    }
+
+    .wrapper .exchangeCashBox {
+        width: 80%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .wrapper .exchangeCashBox i.close-ico {
+        background-position: -176px -197px;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        background-color: #f29d0a;
+        border-radius: 50%;
+    }
+
+    .wrapper .exchangeCashBox ul li {
+        margin-top: 20px;
+    }
+
+    .wrapper .exchangeCashBox ul li .payment {
+        display: flex;
+    }
+
+    .wrapper .exchangeCashBox ul li .payment span {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    .wrapper .exchangeCashBox ul li .payment input {
+        border: 1px solid #303561;
+        background: none;
+        color: #fff;
+        appearance: auto;
+        padding: 0;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+
+    .wrapper .exchangeCashBox ul li ._required input {
+        width: 100%;
+        border: 1px solid #303561;
+        height: 44px;
+        border-radius: 44px;
+    }
+
+    .wrapper .exchangeCashBox ul li p {
+        font-size: 12px;
+        color: #000;
+    }
+
+    .wrapper .exchangeCashBox button {
+        width: 100%;
+        background: -webkit-linear-gradient(left, #18f6d9, #0ca1ec);
+        background: -o-linear-gradient(right, #18f6d9, #0ca1ec);
+        background: -moz-linear-gradient(right, #18f6d9, #0ca1ec);
+        background: linear-gradient(to right, #18f6d9, #0ca1ec);
+        margin-top: 20px;
+    }
+
+    .wrapper .dialog i.close-ico {
+        background-image: url(../../pc/image/public_ico.png);
+        background-position: -175px -355px;
+        top: 10px;
+        right: 10px;
+    }
+
+
+    .wrapper .dialog {
+        width: 90%;
+    }
+
+    .affiliateMain .affiliate-home-index .logSin-right .input-box input,
+    .affiliateMain .affiliate-home-index .a-profile .changeAccount ul li .commonRadio div {
+        width: 100%;
+    }
+
+    .affiliateMain .affiliate-home-index .a-right ul {
+        padding-right: 0;
+    }
+
+    .dialog>p {
+        font-size: 18x;
+    }
+    .affiliateMain .affiliate-home-index .logSin-right .affiliate-btn .errorTips {
+        right: 0;
+    }
+    .affiliateMain .affiliate-home-index.isLogin .order-list table thead td {
+        font-size: 12px;
+    }
+}
