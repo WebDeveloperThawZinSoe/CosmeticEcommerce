@@ -14,7 +14,8 @@ class Card extends Model
         "session_id",
         "product_variant_id",
         "qty",
-        "coupon_code"
+        "coupon_code",
+        "country"
     ];
 
     public function user()

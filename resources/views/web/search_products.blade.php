@@ -90,7 +90,7 @@
                                 </p>
                             </div>
                             <div class="col-md-6">
-                                {{ $products->lin$() }}
+                                {{ $products->links() }}
                             </div>
                         </div>
                     @else

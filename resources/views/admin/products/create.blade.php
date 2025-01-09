@@ -136,11 +136,19 @@
 
                     </div>
                     <!-- Discount Type and Amount Fields -->
-                    <div class="form-group">
+                    <div class="form-group" style="display:none !important;">
                         <label for="pre_order">Pre Order</label>
                         <select id="pre_order" name="pre_order" class="form-control">
                             <option value="0" selected>No</option>
                             <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <!--- National --->
+                    <div class="form-group" >
+                        <label for="country">Country</label>
+                        <select id="country" name="country" class="form-control">
+                            <option value="myanmar" selected>Myanmar</option>
+                            <option value="korea">Korea</option>
                         </select>
                     </div>
                     <!-- Discount Type and Amount Fields -->

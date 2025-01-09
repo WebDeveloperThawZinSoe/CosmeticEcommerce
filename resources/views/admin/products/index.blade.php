@@ -57,12 +57,27 @@
                         <td>{{ $product->name }}</td>
                         <td>
                             @if($product->product_type == 1)
-                            {{ $product->price }} Ks
+                            {{ $product->price }} 
+                                @if($product->country == "myanmar")
+                                    Ks
+                                @elseif($product->country == "korea")
+                                    ₩
+                                @else
+                                    $
+                                @endif
+
                             @elseif($product->product_type = 2)
                             @php
                             $minPrice = $product->variants->min('price');
                             $maxPrice = $product->variants->max('price');
-                            echo $minPrice . " ~ " . $maxPrice . " Ks" ;
+                            // Determine currency symbol
+                            $currencySymbol = match ($product->country) {
+                                'myanmar' => 'Ks',
+                                'korea' => '₩',
+                                default => '$',
+                            };
+
+                            echo $minPrice . " ~ " . $maxPrice . " " . $currencySymbol;
                             @endphp
                             @endif
                         </td>
@@ -97,7 +112,15 @@
                             @if($product->discount_type == 0)
                             Nothing
                             @elseif($product->discount_type == 1)
-                            Amount ( {{$product->discount_amount}} Ks )
+                            Amount ( {{$product->discount_amount}} 
+                                @if($product->country == "myanmar")
+                                    Ks
+                                @elseif($product->country == "korea")
+                                    ₩
+                                @else
+                                    $
+                                @endif
+                            )
                             @elseif($product->discount_type == 2)
                             Percentage (  {{$product->discount_amount}} % )
                             @endif

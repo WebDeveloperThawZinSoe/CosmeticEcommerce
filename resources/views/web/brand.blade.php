@@ -27,9 +27,7 @@
                 <div class="col-12 text-center">
                     <h1 class="title wow fadeInUp" data-wow-delay="0.1s">Our Brands</h1>
                     <p class="description wow fadeInUp" data-wow-delay="0.2s">
-                        Discover our trusted brands offering a range of high-quality protein supplements to support your
-                        health and fitness goals. Whether you're looking to build muscle, recover faster, or simply
-                        maintain a balanced diet, our brands provide premium products to meet your needs.
+                    Explore the world of Korean beauty with our trusted cosmetic brands. Known for their innovative formulas, natural ingredients, and cutting-edge skincare technologies, these brands are here to help you achieve radiant, healthy, and youthful-looking skin. Whether you're looking for hydrating serums, soothing masks, or vibrant makeup, our collection has it all.
                     </p>
                 </div>
                 <section class="content-inner">

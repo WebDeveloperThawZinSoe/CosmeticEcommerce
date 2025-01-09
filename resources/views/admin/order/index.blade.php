@@ -27,9 +27,9 @@
             </ul>
         </div>
         @endif
-        <a class="btn btn-primary btn-tone m-r-5" href="/admin/order/create/admin">
+        <!-- <a class="btn btn-primary btn-tone m-r-5" href="/admin/order/create/admin">
             <i class="anticon anticon-plus"></i> Create Order
-        </a>
+        </a> -->
 
 
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Account</title>
+    <title>Dashboard</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset('admin/images/logo/favicon.png')}}">
@@ -204,7 +204,7 @@
                             </a>
 
                         </li>
-                        <li class="nav-item dropdown open">
+                        <!-- <li class="nav-item dropdown open">
                             <a href="/admin/cupon ">
                                 <span class="icon-holder">
                                     <i class="anticon anticon-appstore"></i>
@@ -213,7 +213,7 @@
 
                             </a>
 
-                        </li>
+                        </li> -->
                         <li class="nav-item dropdown">
                             <a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">

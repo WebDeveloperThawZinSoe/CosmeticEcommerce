@@ -111,7 +111,13 @@
                                     <div class="product-tag">
                                         <span class="badge bg-purple mb-2">Sale |
                                             @if($detail_product->discount_type == 1)
-                                            {{$detail_product->discount_amount}} $ OFF
+                                            {{$detail_product->discount_amount}} @if($detail_product->country == "myanmar")
+                                        Ks
+                                        @elseif($detail_product->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif OFF
                                             @elseif($detail_product->discount_type == 2)
                                             {{$detail_product->discount_amount}} % OFF
                                             @endif
@@ -141,25 +147,53 @@
                             <div class="meta-content m-b20 d-flex align-items-end">
                                 <div class="me-3">
                                     <label class="form-label">Price</label>
+                                    <span id="product_country" style="display:none !important;">{{$detail_product->country}}</span>
                                     <span class="price-num" id="product-price">
                                         @if($detail_product->product_type == 1)
                                         @if($detail_product->discount_type == 0)
-                                        {{$detail_product->price}} $
+                                        {{$detail_product->price}} @if($detail_product->country == "myanmar")
+                                        Ks
+                                        @elseif($detail_product->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif
                                         @elseif($detail_product->discount_type == 1)
                                         @php $discount_price = $detail_product->price -
                                         $detail_product->discount_amount; @endphp
-                                        <del>{{$detail_product->price}}</del> {{$discount_price}} $
+                                        <del>{{$detail_product->price}}</del> {{$discount_price}} @if($detail_product->country
+                                        == "myanmar")
+                                        Ks
+                                        @elseif($detail_product->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif
                                         @elseif($detail_product->discount_type == 2)
                                         @php $discount_price = $detail_product->price - ( $detail_product->price *
                                         ($detail_product->discount_amount / 100 )); @endphp
-                                        <del>{{$detail_product->price}}</del> {{$discount_price}} $
+                                        <del>{{$detail_product->price}}</del> {{$discount_price}} @if($detail_product->country
+                                        == "myanmar")
+                                        Ks
+                                        @elseif($detail_product->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif
                                         @endif
                                         @elseif($detail_product->product_type == 2)
                                         @php
                                         $minPrice = $detail_product->variants->min('price');
                                         $maxPrice = $detail_product->variants->max('price');
-                                        echo $minPrice . " ~ " . $maxPrice . " $" ;
+                                        echo $minPrice . " ~ " . $maxPrice ;
                                         @endphp
+                                        @if($detail_product->country == "myanmar")
+                                        Ks
+                                        @elseif($detail_product->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif
                                         @endif
                                     </span>
                                 </div>
@@ -253,7 +287,16 @@
 
                         // Update product price based on selected variant
                         const variantPrice = button.getAttribute('data-price');
-                        document.getElementById('product-price').innerText = variantPrice + ' $';
+                        const countryName = document.getElementById("product_country").innerHTML;
+                        let currency = "$";
+                        if(countryName == "myanmar"){
+                            currency = "Ks";
+                        }else if(countryName == "korea"){
+                            currency = "₩";
+                        }else{
+                            currency = "$";
+                        }
+                        document.getElementById('product-price').innerText = variantPrice + currency;
 
                         // Set the selected variant ID in the hidden form field
                         document.getElementById('variant_id').value = button.querySelector('input')
@@ -266,31 +309,7 @@
                         }
                     });
                 });
-                // Handle variant selection
-                // document.querySelectorAll('.variant-option').forEach(button => {
-                //     button.addEventListener('click', function() {
-                //         button.querySelector('input').checked = true;
-                //         document.querySelectorAll('.variant-option').forEach(btn => btn.classList
-                //             .remove('active'));
-                //         button.classList.add('active');
-
-                //         // Update product price based on selected variant
-                //         const variantPrice = button.getAttribute('data-price');
-                //         document.getElementById('product-price').innerText = variantPrice + ' $';
-
-                //         // Set the selected variant ID in the hidden form field
-                //         document.getElementById('variant_id').value = button.querySelector('input')
-                //             .value;
-
-                //         // Update main image based on selected variant's image
-                //         const variantImage = button.getAttribute('data-image');
-                //         if (variantImage) {
-                //             document.getElementById('mainImage').src = variantImage;
-                //             document.getElementById('mainImageLink').href = variantImage;
-
-                //         }
-                //     });
-                // });
+                
 
                 // Handle quantity increase and decrease
                 const quantityInput = document.getElementById('quantity');
@@ -435,27 +454,52 @@
                                         <h6 class="price" style="color:black !important;">
                                             @if($product->product_type == 1)
                                             @if($product->discount_type == 0)
-                                            {{$product->price}} $
+                                            {{$product->price}} @if($product->country == "myanmar")
+                                            Ks
+                                            @elseif($product->country == "korea")
+                                            ₩
+                                            @else
+                                            $
+                                            @endif
                                             @elseif($product->discount_type == 1)
                                             @php
                                             $discount_price = $product->price - $product->discount_amount;
                                             @endphp
                                             <del>{{$product->price}} </del>
-                                            {{$discount_price}} $
+                                            {{$discount_price}} @if($product->country == "myanmar")
+                                            Ks
+                                            @elseif($product->country == "korea")
+                                            ₩
+                                            @else
+                                            $
+                                            @endif
                                             @elseif($product->discount_type == 2)
                                             @php
                                             $discount_price = $product->price - ( $product->price * (
                                             $product->discount_amount / 100 ));
                                             @endphp
                                             <del>{{$product->price}} </del>
-                                            {{$discount_price}} $
+                                            {{$discount_price}} @if($product->country == "myanmar")
+                                            Ks
+                                            @elseif($product->country == "korea")
+                                            ₩
+                                            @else
+                                            $
+                                            @endif
                                             @endif
                                             @elseif($product->product_type == 2)
                                             @php
                                             $minPrice = $product->variants->min('price');
                                             $maxPrice = $product->variants->max('price');
-                                            echo $minPrice . " ~ " . $maxPrice . " $" ;
+                                            echo $minPrice . " ~ " . $maxPrice ;
                                             @endphp
+                                            @if($product->country == "myanmar")
+                                            Ks
+                                            @elseif($product->country == "korea")
+                                            ₩
+                                            @else
+                                            $
+                                            @endif
                                             @endif
 
                                         </h6>
@@ -464,7 +508,13 @@
                                     <div class="product-tag">
                                         <span class="badge badge-secondary">Sale |
                                             @if($product->discount_type == 1)
-                                            {{$product->discount_amount}} $ OFF
+                                            {{$product->discount_amount}} @if($product->country == "myanmar")
+                                            Ks
+                                            @elseif($product->country == "korea")
+                                            ₩
+                                            @else
+                                            $
+                                            @endif OFF
                                             @elseif($product->discount_type == 2)
                                             {{$product->discount_amount}} % OFF
                                             @endif

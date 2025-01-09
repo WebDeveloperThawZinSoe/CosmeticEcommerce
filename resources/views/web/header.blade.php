@@ -84,9 +84,13 @@ $generalSettings = App\Models\GeneralSetting::whereIn('name', [
         <div class="main-bar dark clearfix">
             <div class="container clearfix">
                 <!-- Website Logo -->
-                <!-- <div class="logo-header logo-dark">
-                    <a href="index.html"><img src="{{ asset('images/general_settings/' . $logo->value) }}" alt="logo"></a>
-                </div> -->
+                <div class="logo-header logo-dark">
+                    <h2>
+                    {{ env('APP_NAME') }}
+                    </h2>
+                
+                    <!-- <a href="index.html"><img src="{{ asset('images/general_settings/' . $logo->value) }}" alt="logo"></a> -->
+                </div>
 
                 <!-- Nav Toggle Button -->
                 <button class="navbar-toggler collapsed navicon justify-content-end" type="button"
@@ -248,7 +252,12 @@ $generalSettings = App\Models\GeneralSetting::whereIn('name', [
                     </div>
                     <ul class="nav navbar-nav dark-nav">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/products">Products</a></li>
+                        <li class="sub-menu sub-menu-down"><a href="javascript:void(0);"><span>Products For </span></a>
+								<ul class="sub-menu">
+									<li><a href="/products/myanmar">Myanmar</a></li>
+									<li><a href="/products/korea">Korea</a></li>
+								</ul>
+							</li>
                       
                         <li><a href="/brands">Brands</a></li>
                         <li><a href="/faq">FAQ</a></li>

@@ -19,10 +19,17 @@ return new class extends Migration
             $table->string('image');
             $table->integer("category_id");
             $table->integer("sub_category_id")->nullable();
+            $table->integer("brand_id")->nullable();
             $table->integer("status")->default(1);
             $table->text("short_description")->nullable();
             $table->text("description")->nullable();
             $table->integer("min_stock")->nullable();
+            $table->string("country")->default("mm");
+            $table->integer("product_type")->default(1);
+            $table->integer("pre_order")->default(0);
+            $table->integer("discount_type")->default(0);
+            $table->integer("discount_amoun")->default(0);
+            $table->text('images')->nullable();
             $table->timestamps();
         });
     }

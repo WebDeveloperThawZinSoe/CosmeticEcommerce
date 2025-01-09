@@ -13,8 +13,8 @@
     5. Component
     7. Pages
 
-    #24262B To #4e8cca
-    #3E4043 To #60a0d6
+    #24262B To #24262B
+    #3E4043 To #3E4043
     
 */
 @import url(../icons/feather/css/iconfont.css);
@@ -22,7 +22,7 @@
   --gradient: linear-gradient( to right, rgb(255,64,62) 0%, rgb(255,129,27) 100%);
   --gradient-sec: linear-gradient( to right, rgb(57,26,166) 0%, rgb(6,163,245) 100%);
   --primary: rgb(255,64,62);
-  --secondary: #4e8cca;
+  --secondary: #24262B;
   --primary-hover: black;
   --primary-dark: black;
   --rgba-primary-1: rgba(13, 119, 94, 0.1);
@@ -39,7 +39,7 @@
   --border-radius-base: 6px;
   --border-color: #D7D7D7;
   --font-family-title: DM Sans, sans-serif;
-  --title: #4e8cca;
+  --title: #24262B;
   --headings-font-weight:600;
   --headings-font-weight2:400;
   --headings-font-weight3:300;
@@ -63,7 +63,7 @@
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
   --bs-primary: #0D775E;
-  --bs-secondary: #4e8cca;
+  --bs-secondary: #24262B;
   --bs-success: #31A56D;
   --bs-info: #0194D9;
   --bs-warning: #E79600;
@@ -125,7 +125,7 @@
   --bs-tertiary-color-rgb: 94, 98, 111;
   --bs-tertiary-bg: #f8f9fa;
   --bs-tertiary-bg-rgb: 248, 249, 250;
-  --bs-heading-color: #4e8cca;
+  --bs-heading-color: #24262B;
   --bs-link-color: #0D775E;
   --bs-link-color-rgb: 13, 119, 94;
   --bs-link-decoration: underline;
@@ -3327,8 +3327,8 @@ select.is-invalid {
 
 .btn-secondary {
   --bs-btn-color: #ffffff;
-  --bs-btn-bg: #4e8cca;
-  --bs-btn-border-color: #4e8cca;
+  --bs-btn-bg: #24262B;
+  --bs-btn-border-color: #24262B;
   --bs-btn-hover-color: #ffffff;
   --bs-btn-hover-bg: #1f2025;
   --bs-btn-hover-border-color: #1d1e22;
@@ -3338,8 +3338,8 @@ select.is-invalid {
   --bs-btn-active-border-color: #1b1d20;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #ffffff;
-  --bs-btn-disabled-bg: #4e8cca;
-  --bs-btn-disabled-border-color: #4e8cca; }
+  --bs-btn-disabled-bg: #24262B;
+  --bs-btn-disabled-border-color: #24262B; }
 
 .btn-success {
   --bs-btn-color: #000;
@@ -3454,19 +3454,19 @@ select.is-invalid {
   --bs-gradient: none; }
 
 .btn-outline-secondary {
-  --bs-btn-color: #4e8cca;
-  --bs-btn-border-color: #4e8cca;
+  --bs-btn-color: #24262B;
+  --bs-btn-border-color: #24262B;
   --bs-btn-hover-color: #ffffff;
-  --bs-btn-hover-bg: #4e8cca;
-  --bs-btn-hover-border-color: #4e8cca;
+  --bs-btn-hover-bg: #24262B;
+  --bs-btn-hover-border-color: #24262B;
   --bs-btn-focus-shadow-rgb: 36, 38, 43;
   --bs-btn-active-color: #ffffff;
-  --bs-btn-active-bg: #4e8cca;
-  --bs-btn-active-border-color: #4e8cca;
+  --bs-btn-active-bg: #24262B;
+  --bs-btn-active-border-color: #24262B;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #4e8cca;
+  --bs-btn-disabled-color: #24262B;
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #4e8cca;
+  --bs-btn-disabled-border-color: #24262B;
   --bs-gradient: none; }
 
 .btn-outline-success {
@@ -6022,7 +6022,7 @@ select.is-invalid {
   --bs-popover-header-padding-x: 1rem;
   --bs-popover-header-padding-y: 0.5rem;
   --bs-popover-header-font-size: 1rem;
-  --bs-popover-header-color: #4e8cca;
+  --bs-popover-header-color: #24262B;
   --bs-popover-header-bg: var(--bs-secondary-bg);
   --bs-popover-body-padding-x: 1rem;
   --bs-popover-body-padding-y: 1rem;
@@ -10978,7 +10978,7 @@ strong,
   border-width: 2px;
   border-style: solid;
   border-image: initial;
-  border-color: #4e8cca #4e8cca transparent;
+  border-color: #24262B #24262B transparent;
   box-sizing: border-box;
   animation: 1s linear 0s infinite normal none running rotation;
   margin-left: auto;
@@ -13351,7 +13351,7 @@ section {
   padding: 10px 20px;
   font-size: 15px;
   font-weight: 400;
-  color: #4e8cca;
+  color: #24262B;
   transition: all 0.3s ease-in-out;
   background: #F3F3F3;
   border-radius: 0; }
@@ -13728,7 +13728,7 @@ select {
   padding: 10px 20px;
   font-size: 15px;
   font-weight: 400;
-  color: #4e8cca;
+  color: #24262B;
   transition: all 0.3s ease-in-out;
   background-color: #F3F3F3; }
   .form-select .dropdown-toggle, select .dropdown-toggle {
@@ -13846,7 +13846,7 @@ select.btn-group {
   margin: 4px; }
   .form-check-input.radio {
     border-radius: 50% !important;
-    border: 1px solid #4e8cca; }
+    border: 1px solid #24262B; }
     .form-check-input.radio:checked[type="radio"] {
       background-color: #0D775E;
       border: 1px solid #0D775E; }
@@ -14235,7 +14235,7 @@ select.btn-group {
     margin-right: 15px;
     width: 1rem;
     display: block;
-    background-color: #4e8cca;
+    background-color: #24262B;
     position: relative;
     border-radius: 50%;
     z-index: 1; }
@@ -14247,7 +14247,7 @@ select.btn-group {
       width: 28px;
       height: 28px;
       background-color: transparent;
-      border: 1px solid #4e8cca;
+      border: 1px solid #24262B;
       border-radius: 50%;
       opacity: 0.2;
       transform: translate(-50%, -50%) scale(0);
@@ -14277,7 +14277,7 @@ select.btn-group {
     z-index: 9;
     transform: translateY(-50%); }
     .shop-form .form-group .input-group-addon .coupon {
-      color: #4e8cca;
+      color: #24262B;
       font-family: 'DM Sans';
       font-weight: 700;
       padding: 10px 15px;
@@ -14808,7 +14808,7 @@ btn:focus {
   .badge.badge-primary {
     background-color: var(--primary); }
   .badge.badge-secondary {
-    background-color: #4e8cca; }
+    background-color: #24262B; }
   .badge.badge-info {
     background-color: #0194D9; }
   .badge.badge-success {
@@ -14843,7 +14843,7 @@ btn:focus {
   color: #fff; }
 
 .bg-green {
-  background-color: #4e8cca;
+  background-color: #24262B;
   color: #fff; }
 
 .table-responsive-sm {
@@ -14861,7 +14861,7 @@ btn:focus {
         padding: 5px; } }
 
 .table.book-overview tr th {
-  color: #4e8cca;
+  color: #24262B;
   font-size: 16px;
   font-weight: 500;
   width: 200px; }
@@ -14938,7 +14938,7 @@ btn:focus {
     font-size: 16px;
     font-weight: 700;
     padding: 0 0 20px;
-    color: #4e8cca; }
+    color: #24262B; }
   .check-tbl tbody tr {
     border-bottom: 1px solid rgba(94, 98, 111, 0.2); }
     .check-tbl tbody tr td {
@@ -14971,7 +14971,7 @@ btn:focus {
     font-weight: 400; }
   .check-tbl tbody .product-item-price strong {
     font-weight: 500;
-    color: #4e8cca; }
+    color: #24262B; }
   .check-tbl .product-item-close {
     text-align: right; }
     .check-tbl .product-item-close a {
@@ -15219,7 +15219,7 @@ btn:focus {
   .dz-img-overlay13:before,
   .dz-img-overlay13:after {
     content: "";
-    background: #4e8cca;
+    background: #24262B;
     position: absolute;
     left: 0;
     top: 0;
@@ -15540,7 +15540,7 @@ btn:focus {
 .overlay-secondary-light:before,
 .overlay-secondary-middle:before,
 .overlay-secondary-dark:before {
-  background: #4e8cca; }
+  background: #24262B; }
 
 .overlay-gradient-light:before,
 .overlay-gradient-middle:before,
@@ -15681,9 +15681,9 @@ btn:focus {
     height: 100%;
     width: 100%; }
   .img-overlay-gradients.gradients-secondary:before {
-    background: -moz-linear-gradient(bottom, transparent 0%, #4e8cca 100%);
-    background: -webkit-linear-gradient(bottom, transparent 0%, #4e8cca 100%);
-    background: linear-gradient(to bottom, transparent 0%, #4e8cca 100%); }
+    background: -moz-linear-gradient(bottom, transparent 0%, #24262B 100%);
+    background: -webkit-linear-gradient(bottom, transparent 0%, #24262B 100%);
+    background: linear-gradient(to bottom, transparent 0%, #24262B 100%); }
   .img-overlay-gradients.gradients-primary:before {
     background: -moz-linear-gradient(bottom, transparent 0%, var(--primary) 100%);
     background: -webkit-linear-gradient(bottom, transparent 0%, var(--primary) 100%);
@@ -17554,7 +17554,7 @@ ul.grid-2 {
 
 .search-bx.style-1 {
   padding: 30px;
-  background-color: #4e8cca;
+  background-color: #24262B;
   border-radius: 0.375rem; }
   .search-bx.style-1 .input-group {
     margin-bottom: 0; }
@@ -22109,7 +22109,7 @@ del {
       width: unset;
       height: 0;
       margin: 0 7px;
-      color: #4e8cca;
+      color: #24262B;
       text-shadow: 0px 4px 44px rgba(0, 0, 0, 0.15);
       font-weight: 400;
       font-size: 14px;
@@ -22137,7 +22137,7 @@ del {
   .newsletter-wrapper:after {
     content: "";
     position: absolute;
-    background-color: #4e8cca;
+    background-color: #24262B;
     width: 100%;
     height: 100%;
     z-index: -1;
@@ -22571,7 +22571,7 @@ del {
   display: block;
   writing-mode: vertical-rl; }
   .service-btn.btn-dark {
-    background-color: #4e8cca !important;
+    background-color: #24262B !important;
     color: #fff; }
   @media only screen and (max-width: 991px) {
     .service-btn {
@@ -22648,7 +22648,7 @@ del {
     object-fit: cover; }
   .category-product .category-badge {
     position: absolute;
-    background-color: #4e8cca;
+    background-color: #24262B;
     color: #fff;
     text-transform: uppercase;
     font-size: 15px;
@@ -22758,7 +22758,7 @@ del {
 .menu-nav-btn {
   width: var(--fix-height);
   height: var(--fix-height);
-  background: #4e8cca;
+  background: #24262B;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24498,7 +24498,7 @@ del {
         position: relative;
         margin-right: 30px;
         font-size: 13px;
-        color: #4e8cca; }
+        color: #24262B; }
         .blog-single.style-1 .dz-meta li i {
           color: var(--primary); }
         .blog-single.style-1 .dz-meta li:after {
@@ -24519,7 +24519,7 @@ del {
           font-weight: 500;
           display: inline-block;
           background: #F6F6F6;
-          color: #4e8cca;
+          color: #24262B;
           font-size: 13px; }
       @media only screen and (max-width: 575px) {
         .blog-single.style-1 .dz-meta {
@@ -24541,7 +24541,7 @@ del {
         .blog-single.style-1 .dz-meta.style-1 li:after {
           background-color: #fff; }
         .blog-single.style-1 .dz-meta.style-1 li.post-date {
-          color: #4e8cca; }
+          color: #24262B; }
     .blog-single.style-1 .dz-info {
       text-align: unset;
       border: 0;
@@ -25443,7 +25443,7 @@ pre {
 .dz-blog.blog-single .dz-post-text p {
   margin-bottom: 30px;
   font-family: var(--font-family-title);
-  color: #4e8cca; }
+  color: #24262B; }
   @media only screen and (max-width: 575px) {
     .dz-page-text p,
     .dz-blog.blog-single .dz-post-text p {
@@ -26340,7 +26340,7 @@ pre {
   .dz-share-post .post-tags strong {
     font-weight: 500;
     font-size: 14px;
-    color: #4e8cca; }
+    color: #24262B; }
   .dz-share-post .post-tags a {
     color: #5E626F;
     border-radius: var(--border-radius-base);
@@ -27123,7 +27123,7 @@ pre {
       font-family: var(--font-family-title);
       font-size: 120px;
       font-weight: 700;
-      color: #4e8cca;
+      color: #24262B;
       line-height: 0.7;
       margin-bottom: 20px; }
     .error-page.style-1 .error-inner .btn, .error-page.style-1 .error-inner .wp-block-button__link, .error-page.style-1 .error-inner .woocommerce .widget_shopping_cart .buttons a, .woocommerce .widget_shopping_cart .buttons .error-page.style-1 .error-inner a,
@@ -27172,7 +27172,7 @@ pre {
       left: 50%;
       transform: translate(-50%, -50%);
       top: 50%;
-      background: linear-gradient(to right, white 50%, #4e8cca 50%);
+      background: linear-gradient(to right, white 50%, #24262B 50%);
       background-clip: border-box;
       line-height: 1;
       -webkit-background-clip: text;
@@ -27183,7 +27183,7 @@ pre {
       @media only screen and (max-width: 767px) {
         .error-page.style-2 .dz_error {
           writing-mode: unset;
-          background: linear-gradient(to bottom, white 50%, #4e8cca 50%);
+          background: linear-gradient(to bottom, white 50%, #24262B 50%);
           -webkit-background-clip: text; } }
     .error-page.style-2 .error-inner {
       margin: auto; }
@@ -27366,7 +27366,7 @@ body .working-location {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #4e8cca;
+    background: #24262B;
     mix-blend-mode: color;
     z-index: 0;
     pointer-events: none; }
@@ -27718,7 +27718,7 @@ body .working-location {
 
 .shop-checkout .form-group .form-check-input {
   margin: 5px 5px 0 0;
-  border: 1px solid #4e8cca; }
+  border: 1px solid #24262B; }
   .shop-checkout .form-group .form-check-input:checked {
     border-color: var(--primary); }
 
@@ -27726,7 +27726,7 @@ body .working-location {
   font-weight: 500;
   font-size: 14px;
   font-family: 'DM Sans';
-  color: #4e8cca; }
+  color: #24262B; }
 
 .shop-checkout .dz-accordion .accordion-item {
   margin-bottom: 15px; }
@@ -27811,7 +27811,7 @@ body .working-location {
         font-weight: 500;
         font-size: 16px;
         line-height: 20px;
-        color: #4e8cca; }
+        color: #24262B; }
         .order-detail table tr td.price {
           text-align: end; }
       .order-detail table tr.title {
@@ -27852,7 +27852,7 @@ body .working-location {
     .cart-item.style-1 .dz-content .price {
       font-size: 16px;
       font-weight: 500;
-      color: #4e8cca; }
+      color: #24262B; }
 
 .extm {
   z-index: 1; }
@@ -30903,7 +30903,7 @@ table.wishlist_table {
     .faq-content-box.style-1.light {
       background: #F6F6F6; }
     .faq-content-box.style-1.dark {
-      background: #4e8cca; }
+      background: #24262B; }
       .faq-content-box.style-1.dark .dz-title {
         color: #fff; }
       .faq-content-box.style-1.dark p {
@@ -32206,10 +32206,10 @@ a {
           transform: rotate(90deg); }
 
 .main-bar.dark {
-  background-color: #4e8cca; }
+  background-color: #24262B; }
   .main-bar.dark .browse-category-menu .category-btn {
     color: #fff;
-    background-color: #60a0d6; }
+    background-color: #3E4043; }
   @media only screen and (min-width: 991px) {
     .main-bar.dark .header-nav .nav > li > a {
       color: #fff; }
@@ -33241,7 +33241,7 @@ footer {
     footer.footer-dark .footer-top {
       color: rgba(255, 255, 255, 0.6); }
     footer.footer-dark .icon-bx-wraper {
-      --title: #4e8cca; }
+      --title: #24262B; }
 
 .widget_getintuch ul li {
   position: relative;
@@ -33492,7 +33492,7 @@ footer {
         .site-footer.style-3 .instagram-link .follow-link .follow-link-content h4, .site-footer.style-3 .instagram-link .follow-link .follow-link-content .h4 {
           font-size: 16px;
           font-weight: 700;
-          color: #4e8cca; }
+          color: #24262B; }
         .site-footer.style-3 .instagram-link .follow-link .follow-link-content p {
           font-size: 15px;
           font-weight: 400;

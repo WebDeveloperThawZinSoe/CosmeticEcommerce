@@ -90,7 +90,8 @@ class ProductController extends Controller
             'images' => json_encode($imagePaths), // Save multiple image paths as JSON
             'discount_type' => $request->discount_type ?? '0',
             'discount_amount' => $request->discount_amount ?? 0,
-            "pre_order" => $request->pre_order
+            "pre_order" => $request->pre_order,
+            "country" => $request->country
         ]);
 
         // Create product variant
@@ -166,7 +167,8 @@ class ProductController extends Controller
             "product_type" => 2 ,
             'discount_type' => $validatedData['discount_type'] ?? '0',
             'discount_amount' => $validatedData['discount_amount'] ?? 0,
-            "pre_order" => $request->pre_order
+            "pre_order" => $request->pre_order,
+            "country" => $request->country
         ]);
     
         // Loop through each variant to save them

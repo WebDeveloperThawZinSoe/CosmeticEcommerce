@@ -15,8 +15,10 @@ class CartController extends Controller
 
     public function addToCard(Request $request)
     {
+       
         // Find the product
         $product = ProductVariants::findOrFail($request->variant_id);
+       
         // Set default quantity
         $qty = 1;
     
@@ -26,9 +28,11 @@ class CartController extends Controller
         } elseif ($request->quantity > 2) {
             $qty = $request->quantity;
         }
-    
+        $country = $product->product->country;
+        // dd($country);
         // Check if user is authenticated
         if (auth()->check()) {
+            
             // For logged-in users, check if the item is already in the cart
             $card = Card::where('user_id', auth()->id())
                 ->where('product_variant_id', $product->id)
@@ -43,6 +47,7 @@ class CartController extends Controller
                 $card->user_id = auth()->id();
                 $card->product_variant_id = $product->id;
                 $card->qty = $qty;
+                $card->country = $country;
             }
             $card->save(); // Save to the database
     
@@ -63,6 +68,7 @@ class CartController extends Controller
                 $card->session_id = $sessionId;
                 $card->product_variant_id = $product->id;
                 $card->qty = $qty;
+                $card->country = $country;
             }
             $card->save(); // Save to the database for guests
         }

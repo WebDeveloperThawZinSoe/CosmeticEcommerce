@@ -154,6 +154,9 @@ Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.c
 Route::post('/checkout/store', [CheckoutController::class, 'store'])->name('checkout.store');
 Route::post("/cart/cuppon/apply",[CartController::class,"cuponApply"])->name("cart.apply_coupon");
 Route::post("/cart/coupon/remove", [CartController::class, "couponRemove"])->name("cart.coupon.remove");
+/* Customize */
+Route::post('/cart/check', [CartController::class, 'checkCart'])->name('cart.check');
+Route::post('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear');
 });
 
 
@@ -167,6 +170,7 @@ Route::get("/products",[PageController::class,"products"])->name("products");
 Route::get("/products/{id}/detail",[PageController::class,"productDetail"]);
 Route::get("/products/category/{id}",[PageController::class,"productsCategory"])->name("productsCategory");
 Route::get("/brands",[PageController::class,"brands"])->name("brands");
+Route::get("/products/{country}",[PageController::class,"productByCountry"]);
 Route::get("/brands/{id}",[PageController::class,"brandDetail"])->name("brandDetail");
 Route::Get("/goals/{name}",[PageController::class,"goalsPage"])->name("goalsPage");
 Route::get("/faq",[PageController::class,"faq"])->name("faq");

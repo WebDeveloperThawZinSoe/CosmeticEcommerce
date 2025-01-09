@@ -40,7 +40,8 @@ class PageController extends Controller
         $Latest_products = Product::with(['category', 'subCategory', 'variants'])
         ->where("stock","!=",0)->where("status",1)->orderBy("id", "desc")
         ->limit(8)->get();
-        return view("web.index",compact("Latest_products"));
+        $brands =   Brand::inRandomOrder()->limit(6)->get();
+        return view("web.index",compact("Latest_products","brands"));
     }
 
     //category
@@ -137,14 +138,27 @@ class PageController extends Controller
     public function products()
     {
         $data = [
-            "ProductCategories" => ProductCategory::inRandomOrder()->limit(10)->get(),
-            "brands" => Brand::inRandomOrder()->limit(10)->get(),
+            "ProductCategories" => ProductCategory::inRandomOrder()->limit(15)->get(),
+            "brands" => Brand::inRandomOrder()->limit(15)->get(),
             "products" => Product::with(['category', 'subCategory', 'variants'])->where("stock","!=",0)->where("status",1)
-                ->orderBy("name", "asc")
-                ->paginate(18) // Paginate with 18 items per page
+                ->orderBy("id", "desc")
+                ->paginate(49) // Paginate with 18 items per page
         ];        
         return view("web.products")->with($data);
     }
+
+        //products
+    public function productByCountry($country)
+    {
+            $data = [
+                "ProductCategories" => ProductCategory::inRandomOrder()->limit(15)->get(),
+                "brands" => Brand::inRandomOrder()->limit(15)->get(),
+                "products" => Product::with(['category', 'subCategory', 'variants'])->where("stock","!=",0)->where("status",1)->where("country",$country)->orderBy("id", "desc")->paginate(49), // Paginate with 18 items per page
+                "country" => $country
+            ];        
+            return view("web.productByCountry")->with($data);
+        }
+
     
 
     //products
@@ -187,7 +201,7 @@ class PageController extends Controller
     
         // Fetch 4 random products from the same category
         $suggest_products = Product::where("category_id", $detail_product->category_id)
-            ->where("id", "!=", $id)  // Exclude the current product
+            ->where("id", "!=", $id)->where("country",$detail_product->country)  // Exclude the current product
             ->inRandomOrder()
             ->limit(4)
             ->get();

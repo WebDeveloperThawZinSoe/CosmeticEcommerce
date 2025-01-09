@@ -25,7 +25,8 @@ class Product extends Model
         'discount_type',
         'discount_amount',
         'images',
-        "brand_id"
+        "brand_id",
+        "country"
     ];
 
     /**

@@ -9,9 +9,15 @@
             <span class="badge bg-warning" style="color:white !important;">Pre Order</span>
             @endif
             <p><strong>Name:</strong> {{ $product->name }}</p>
-            <p><strong>Price:</strong> {{ $product->price }} Ks</p>
+            <p><strong>Price:</strong> {{ $product->price }}  @if($product->country == "myanmar")
+                                    Ks
+                                @elseif($product->country == "korea")
+                                    ₩
+                                @else
+                                    $
+                                @endif</p>
             <p><strong>Stock:</strong> {{ $product->stock }}</p>
-           
+            <p><strong>Country:</strong> {{ $product->country }}</p>
             <p><strong>Category:</strong> {{ $product->category->name ?? 'N/A' }}</p>
             <!-- <p><strong>Subcategory:</strong> {{ $product->subcategory->name ?? 'N/A' }}</p> -->
             <p><strong>Brand:</strong> {{ $product->brand->name ?? 'N/A' }}</p>
