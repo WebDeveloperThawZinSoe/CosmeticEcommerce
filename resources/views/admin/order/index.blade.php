@@ -116,29 +116,37 @@
                             @endif
                         </td>
                         <td>
-                            {{ $order->total_price }} $
-                            @php 
-                                $cupon_code_id = $order->cupon_code_id ?? null;
-                                
+                            {{ $order->total_price }}
+                            @if($order->country ==
+                            "myanmar")
+                            Ks
+                            @elseif($order->country == "korea")
+                            ₩
+                            @else
+                            $
+                            @endif
+                            @php
+                            $cupon_code_id = $order->cupon_code_id ?? null;
+
                             @endphp
                             @if($cupon_code_id == "AAA")
-                                {{ $order->total_price }} $
+                            {{ $order->total_price }} $
                             @elseif($cupon_code_id == "AAA")
-                                @php
-                                    $cupon_type = $order->CuponCode->type;
-                                    $cupon_amount = $order->CuponCode->amount;
-                                    $original_price = $order->total_price;
-                                    if($cupon_type == 1){
-                                            $after_discount_price = $original_price - $cupon_amount;
-                                            echo $after_discount_price . "$";
-                                        }elseif($cupon_type == 2){
-                                            $after_discount_price = $original_price - ($original_price * ($cupon_amount / 100));
-                                            echo $after_discount_price . "$";
-                                        }
-                                @endphp
-                              
+                            @php
+                            $cupon_type = $order->CuponCode->type;
+                            $cupon_amount = $order->CuponCode->amount;
+                            $original_price = $order->total_price;
+                            if($cupon_type == 1){
+                            $after_discount_price = $original_price - $cupon_amount;
+                            echo $after_discount_price . "$";
+                            }elseif($cupon_type == 2){
+                            $after_discount_price = $original_price - ($original_price * ($cupon_amount / 100));
+                            echo $after_discount_price . "$";
+                            }
+                            @endphp
+
                             @endif
-                           
+
                         </td>
                         <td>
                             <!-- Status and Form to Update -->
@@ -164,10 +172,11 @@
                             <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-info">
                                 <i class="anticon anticon-eye"></i>
                             </a>
-                          <form action="{{ route('admin.order.delete.hard') }}" method="POST" onsubmit="return confirm('Are You Sure To Delete This ?')">
-                            @csrf
+                            <form action="{{ route('admin.order.delete.hard') }}" method="POST"
+                                onsubmit="return confirm('Are You Sure To Delete This ?')">
+                                @csrf
                                 @method('POST')
-                                <input type="hidden"  name="id" value="{{$order->id}}">
+                                <input type="hidden" name="id" value="{{$order->id}}">
                                 <button type="submit" class="btn btn-danger">
                                     <i class="anticon anticon-delete"></i>
                                 </button>

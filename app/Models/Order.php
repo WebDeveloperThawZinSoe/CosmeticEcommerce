@@ -24,7 +24,8 @@ class Order extends Model
         'payment_account_name',
         'status',
         "payment_status",
-        "cupon_code_id"
+        "cupon_code_id",
+        "country"
     ];
 
     public function user()

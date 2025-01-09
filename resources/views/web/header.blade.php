@@ -363,7 +363,15 @@ $generalSettings = App\Models\GeneralSetting::whereIn('name', [
 
                                                         if ($vDiscountType == 0) {
                                                         $variantProductPrice = $variantProductPrice;
-                                                        echo $variantProductPrice . " $";
+                                                        echo $variantProductPrice ;
+                                                        if($card->country == "myanmar"){
+                                                           echo "Ks";
+                                                        }elseif($card->country == "korea"){
+                                                            echo "₩";
+                                                        }else{
+                                                            echo "$";
+                                                        }
+                                                        
                                                         } elseif ($vDiscountType == 1) {
                                                         $variantProductPrice = $variantProductPrice - $vDiscountAmount;
                                                         echo "<del>$variantProductPriceOrg</del> $variantProductPrice
@@ -372,7 +380,7 @@ $generalSettings = App\Models\GeneralSetting::whereIn('name', [
                                                         $variantProductPrice = $variantProductPrice -
                                                         ($variantProductPrice * ($vDiscountAmount / 100));
                                                         echo "<del>$variantProductPriceOrg</del> $variantProductPrice
-                                                        $";
+                                                        ";
                                                         }
                                                         $totalPrice += $variantProductPrice * $card->qty;
                                                         @endphp
@@ -424,13 +432,29 @@ $generalSettings = App\Models\GeneralSetting::whereIn('name', [
 
                                     @endphp
                                     @if($cupon_code ==  null)
-                                        <h5 class="mb-0">{{ number_format($original_price, 2) }} $</h5>
+                                        <h5 class="mb-0">{{ number_format($original_price, 2) }}
+                                           @if(isset($$card->country))
+                                                @if($card->country == "myanmar")
+                                                    Ks
+                                                @elseif($card->country == "korea")
+                                                    ₩
+                                                @else
+                                                    $
+                                                @endif
+                                            @endif
+                                        </h5>
                                     @else 
                                     
                                         
-                                        <h5 class="mb-0"><del>{{ number_format($original_price, 2) }}</del> $
+                                        <h5 class="mb-0"><del>{{ number_format($original_price, 2) }}</del> 
                                         <br>
-                                        {{ number_format($after_discount_price, 2) }} $
+                                        {{ number_format($after_discount_price, 2) }} @if($card->country == "myanmar")
+                                                Ks
+                                                @elseif($card->country == "korea")
+                                                ₩
+                                                @else
+                                                $
+                                                @endif
                                        
                                         </h5>
                                   

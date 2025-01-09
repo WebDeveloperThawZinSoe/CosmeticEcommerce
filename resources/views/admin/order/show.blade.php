@@ -29,13 +29,27 @@
             $cupon_code_id = $order->cupon_code_id ?? null;
                                 
         @endphp
-        {{ number_format($order->total_price, 1) }} $
+        {{ number_format($order->total_price, 1) }} @if($order->country ==
+                            "myanmar")
+                            Ks
+                            @elseif($order->country == "korea")
+                            ₩
+                            @else
+                            $
+                            @endif
         @if($cupon_code_id != null)
         <br>
         <p><strong>Cupon Code:</strong> <a href="/admin/cupon/{{$order->CuponCode->id}}" target="_blank">  {{$order->CuponCode->cupon_code}} </a> </p>
         @endif
         @if($cupon_code_id == "AAAA")
-            {{ number_format($order->total_price, 1) }} $
+            {{ number_format($order->total_price, 1) }} @if($order->country ==
+                            "myanmar")
+                            Ks
+                            @elseif($order->country == "korea")
+                            ₩
+                            @else
+                            $
+                            @endif
         @elseif($cupon_code_id == "AAAA")
             @php
                 $cupon_type = $order->CuponCode->type;
@@ -123,7 +137,14 @@
                                     $finalPrice = max(0, $ProductPrice - ($ProductPrice * ($DiscountAmount / 100)));
                                 }
                             @endphp
-                            {{ number_format($finalPrice, 1) }} Ks
+                            {{ number_format($finalPrice, 1) }} @if($order->country ==
+                            "myanmar")
+                            Ks
+                            @elseif($order->country == "korea")
+                            ₩
+                            @else
+                            $
+                            @endif
                         </td>
                         <td>{{ $detail->qty }}</td>
                     </tr>

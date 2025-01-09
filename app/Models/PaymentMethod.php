@@ -12,6 +12,7 @@ class PaymentMethod extends Model
         "method_name",
         "icon",
         "account_no",
+        "country",
         "account_name"
     ];
 }

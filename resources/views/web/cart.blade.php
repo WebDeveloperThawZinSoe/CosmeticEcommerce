@@ -83,10 +83,23 @@
                                     </td>
                                     <td class="product-item-price">
                                         @if ($vDiscountType == 0)
-                                        {{ number_format($variantProductPrice, 2) }} $
+                                        {{ number_format($variantProductPrice, 2) }}
+                                        @if($card->country == "myanmar")
+                                        Ks
+                                        @elseif($card->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif
                                         @else
                                         <del>{{ number_format($variantProductPriceOrg, 2) }}</del>
-                                        {{ number_format($finalPrice, 2) }} $
+                                        {{ number_format($finalPrice, 2) }} @if($card->country == "myanmar")
+                                        Ks
+                                        @elseif($card->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif
                                         @endif
                                     </td>
                                     <td class="product-item-quantity">
@@ -108,7 +121,13 @@
                                         </div>
                                     </td>
                                     <td class="product-item-totle d-none d-md-table-cell">
-                                        {{ number_format($subtotal, 2) }} $
+                                        {{ number_format($subtotal, 2) }} @if($card->country == "myanmar")
+                                        Ks
+                                        @elseif($card->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif
                                     </td>
                                     <td class="product-item-close">
                                         <form action="/cart/remove/{{ $card->id }}" method="POST">
@@ -141,14 +160,14 @@
                         </div>
 
                         @if($cupon_code)
-                        @php 
-                           $cupon_code_info = App\Models\CuponCode::where("id",$cupon_code)->first();
-                           $cupon_code = $cupon_code_info->cupon_code;
-                           $cupon_description  = $cupon_code_info->description;
+                        @php
+                        $cupon_code_info = App\Models\CuponCode::where("id",$cupon_code)->first();
+                        $cupon_code = $cupon_code_info->cupon_code;
+                        $cupon_description = $cupon_code_info->description;
 
                         @endphp
                         <!-- Coupon Section (Coupon Already Applied) -->
-                        <form action="{{ route('cart.apply_coupon') }}" method="POST">
+                        <!-- <form action="{{ route('cart.apply_coupon') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="coupon" class="form-label">Coupon Received</label>
@@ -156,26 +175,27 @@
                                     class="form-control @error('coupon') is-invalid @enderror"
                                     placeholder="Enter your coupon code" value="{{ $cupon_code }}" readonly>
 
-                                <!-- Coupon Description -->
-                                <p class="mt-2 text-success" style="color:green !important;">{!! $cupon_description !!}</p>
+                               
+                                <p class="mt-2 text-success" style="color:green !important;">{!! $cupon_description !!}
+                                </p>
 
-                                <!-- Custom Coupon Code Error Message -->
+                               
                                 @if(session('coupon_error'))
                                 <div class="text-danger mt-2">{{ session('coupon_error') }}</div>
                                 @endif
                             </div>
                             <button type="submit" class="btn btn-primary w-100" disabled>Coupon Applied</button>
-                            
-                        </form>
+
+                        </form> -->
 
                         <br>
-                            <form action="{{ route('cart.coupon.remove') }}" method="post">
-                                @csrf
-                                <input type="submit" class="btn btn-danger w-100" value="Remove Coupon Code">
-                            </form>
+                        <form action="{{ route('cart.coupon.remove') }}" method="post">
+                            @csrf
+                            <input type="submit" class="btn btn-danger w-100" value="Remove Coupon Code">
+                        </form>
                         @else
                         <!-- Coupon Section (No Coupon Applied) -->
-                        <form action="{{ route('cart.apply_coupon') }}" method="POST">
+                        <!-- <form action="{{ route('cart.apply_coupon') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="coupon" class="form-label">Coupon Received</label>
@@ -183,18 +203,18 @@
                                     class="form-control @error('coupon') is-invalid @enderror"
                                     placeholder="Enter your coupon code" value="{{ old('coupon') }}">
 
-                                <!-- Validation Error Message -->
+                              
                                 @error('coupon')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
 
-                                <!-- Custom Coupon Code Error Message -->
+                            
                                 @if(session('coupon_error'))
                                 <div class="text-danger mt-2">{{ session('coupon_error') }}</div>
                                 @endif
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Apply Coupon</button>
-                        </form>
+                        </form> -->
                         @endif
 
 
@@ -207,33 +227,47 @@
                                     <td>
                                         <h6 class="mb-0">Total</h6>
                                     </td>
-                                    @php 
+                                    @php
                                     $cupon_code = $card ? $card->coupon_code : null;
                                     $original_price = $totalPrice;
                                     if($cupon_code != null){
-                                        $cupon_code_info = App\Models\CuponCode::where("id",$cupon_code)->first();
-                                        $cupon_code_type = $cupon_code_info->type;
-                                        $cupon_code_amount  = $cupon_code_info->amount;
-                                        $original_price = $totalPrice;
-                                        $after_discount_price = 0;
-                                        if($cupon_code_type == 1){
-                                            $after_discount_price = $original_price - $cupon_code_amount;
-                                        }elseif($cupon_code_type == 2){
-                                            $after_discount_price = $original_price - ($original_price * ($cupon_code_amount / 100));
-                                        }
+                                    $cupon_code_info = App\Models\CuponCode::where("id",$cupon_code)->first();
+                                    $cupon_code_type = $cupon_code_info->type;
+                                    $cupon_code_amount = $cupon_code_info->amount;
+                                    $original_price = $totalPrice;
+                                    $after_discount_price = 0;
+                                    if($cupon_code_type == 1){
+                                    $after_discount_price = $original_price - $cupon_code_amount;
+                                    }elseif($cupon_code_type == 2){
+                                    $after_discount_price = $original_price - ($original_price * ($cupon_code_amount /
+                                    100));
+                                    }
                                     }
 
                                     @endphp
 
-                                    @if($cupon_code ==  null)
-                                        <td class="price">{{ number_format($totalPrice, 2) }} $</td>
-                                    @else 
-                                        <td class="price"><del>{{ number_format($original_price, 2) }}</del>$ 
-                                            <br>
-                                            {{ number_format($after_discount_price, 2) }} $
-                                        </td>
+                                    @if($cupon_code == null)
+                                    <td class="price">{{ number_format($totalPrice, 2) }} @if($card->country ==
+                                        "myanmar")
+                                        Ks
+                                        @elseif($card->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif</td>
+                                    @else
+                                    <td class="price"><del>{{ number_format($original_price, 2) }}</del>$
+                                        <br>
+                                        {{ number_format($after_discount_price, 2) }} @if($card->country == "myanmar")
+                                        Ks
+                                        @elseif($card->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif
+                                    </td>
                                     @endif
-                                   
+
                                 </tr>
                             </tbody>
                         </table>

@@ -212,9 +212,11 @@ class CheckoutController extends Controller
         if ($request->hasFile('payment_slip')) {
             $paymentSlip = $request->file('payment_slip');
             $payment_slip_name = time() . '_' . uniqid() . '.' . $paymentSlip->getClientOriginalExtension();
-            $paymentSlip->storeAs('payment_slips', $payment_slip_name, 'public');
+        
+            // Move the uploaded file to the public/payment_slips directory
+            $paymentSlip->move(public_path('payment_slips'), $payment_slip_name);
         }
-
+        
         // Apply coupon discount
         $cupon_code_id = $request->cupon_code_id ?? null;
         if ($cupon_code_id) {
@@ -252,6 +254,7 @@ class CheckoutController extends Controller
                 'note' => $request->note,
                 'payment_status' => 0,
                 'cupon_code_id' => $cupon_code_id,
+                "country" => $request->country
             ]);
 
             // Process Stripe payment if selected
@@ -307,7 +310,7 @@ class CheckoutController extends Controller
             Card::where($user_id ? "user_id" : "session_id", $user_id ?? $sessionId)->delete();
 
             DB::commit();
-            return redirect('/checkout')->with('success', 'Order placed successfully!');
+            return redirect('/')->with('success', 'Order placed successfully!');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->with('error', 'Order failed: ' . $e->getMessage());

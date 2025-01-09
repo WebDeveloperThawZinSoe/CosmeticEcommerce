@@ -32,12 +32,20 @@ class CartController extends Controller
         // dd($country);
         // Check if user is authenticated
         if (auth()->check()) {
-            
+
+            //Country Check
+            $frist_card = Card::where("user_id",auth()->id())->first();
+            if(isset($frist_card)){
+                if($frist_card->country != $country){
+                    Card::where("user_id",auth()->id())->delete();
+                }
+            }
+
             // For logged-in users, check if the item is already in the cart
             $card = Card::where('user_id', auth()->id())
                 ->where('product_variant_id', $product->id)
                 ->first();
-    
+            
             if ($card) {
                 // If the item is already in the cart, update the quantity
                 $card->qty += $qty;
@@ -54,7 +62,13 @@ class CartController extends Controller
         } else {
             // For guest users, use session storage
             $sessionId = session()->getId();
-            
+            //Country Check
+            $frist_card = Card::where("user_id",auth()->id())->first();
+            if(isset($frist_card)){
+                if($frist_card->country != $country){
+                    Card::where("user_id",auth()->id())->delete();
+                }
+            }
             $card = Card::where('session_id', $sessionId)
                 ->where('product_variant_id', $product->id)
                 ->first();

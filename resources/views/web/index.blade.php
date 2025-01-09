@@ -142,7 +142,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="wow fadeInUp" data-wow-delay="0.3s">
+                    <!-- <div class="wow fadeInUp" data-wow-delay="0.3s">
                         <h3 class="title">Our Latest products</h3>
                         <div class="site-filters clearfix d-flex align-items-center">
                             <a href="/products"
@@ -151,7 +151,7 @@
                                 <i class="icon feather icon-chevron-right font-18"></i>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="clearfix">
                         <ul id="masonry" class="row g-xl-4 g-3">
                             @foreach($Latest_products as $product)

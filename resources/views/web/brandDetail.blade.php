@@ -41,7 +41,8 @@
                                         <h6 class="price" style="color:black !important;">
                                             @if($product->product_type == 1)
                                                 @if($product->discount_type == 0)
-                                                    {{$product->price}} @if($product->country == "myanmar")
+                                                    {{$product->price}}
+                                                @if($product->country == "myanmar")
                                                 Ks
                                                 @elseif($product->country == "korea")
                                                 ₩

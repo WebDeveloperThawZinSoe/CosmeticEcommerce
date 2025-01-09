@@ -25,6 +25,7 @@ return new class extends Migration
             $table->decimal('total_price', 8, 1);
             $table->integer("payment_status")->default(0);
             $table->text("note")->nullable();
+            $table->string("country")->default("myanmar")->nullable();
             $table->timestamps();
         });        
     }

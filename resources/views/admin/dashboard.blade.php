@@ -37,7 +37,8 @@
                                 <i class="anticon anticon-dollar"></i>
                             </div>
                             <div class="m-l-15">
-                                <h2 class="m-b-0">{{$totalPrice}} Ks</h2>
+                                <h2 style="display:inline !important;" class="m-b-0">{{$totalPriceMM}} Ks</h2> |
+                                <h2 style="display:inline !important;" class="m-b-0">{{$totalPriceSK}} ₩</h2>
                                 <p class="m-b-0 text-muted">Total Sale</p>
                             </div>
                         </div>
@@ -99,7 +100,7 @@
     </div>
     
     <div class="row">
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
             <div class="card " style="padding-top:30px !important;">
                 <div class="card-header">
                     <h3>Orders by Amount and Date</h3>
@@ -108,8 +109,8 @@
                     <canvas id="orderChart" width="100%" height="400px"></canvas>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
+        </div> -->
+        <div class="col-md-12">
             <div class="card " style="padding-top:30px !important;"> 
                 <div class="card-header">
                     <h3>User Account Volume by Date</h3>
@@ -142,7 +143,16 @@
                                     <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{$order_data->order_number}}</td>
-                                        <td>{{$order_data->total_price}} $</td>
+                                        <td>{{$order_data->total_price}} 
+                                        @if($order_data->country ==
+                                        "myanmar")
+                                        Ks
+                                        @elseif($order_data->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif
+                                        </td>
                                         <td>
                                             @if($order_data->status == 1)
                                             <span class="badge badge-warning">Pending</span>  

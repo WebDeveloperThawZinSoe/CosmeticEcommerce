@@ -40,7 +40,8 @@ class DashboardController extends Controller
         $userVolumes = $userRegistrations->pluck('volume');
     
         $data = [
-            "totalPrice" => Order::where("status", 2)->sum('total_price'),
+            "totalPriceMM" => Order::where("status", 2)->where("country","myanmar")->sum('total_price'),
+            "totalPriceSK" => Order::where("status", 2)->where("country","korea")->sum('total_price'),
             "order" => Order::count(),
             "product" => Product::count(),
             "customer" => User::where("role", "2")->count(),
