@@ -129,60 +129,41 @@
                             <div class="meta-content m-b20 d-flex align-items-end">
                                 <div class="me-3">
                                     <label class="form-label">Price</label>
-                                    <span id="product_country"
-                                        style="display:none !important;">{{$detail_product->country}}</span>
+                                    <span id="product_country" style="display:none !important;">
+                                        {{ $detail_product->country }}
+                                    </span>
                                     <span class="price-num" id="product-price">
-                                        @if($detail_product->product_type == 1)
-                                        @if($detail_product->discount_type == 0)
-                                        {{$detail_product->price}} @if($detail_product->country == "myanmar")
-                                        Ks
-                                        @elseif($detail_product->country == "korea")
-                                        ₩
-                                        @else
-                                        $
-                                        @endif
-                                        @elseif($detail_product->discount_type == 1)
-                                        @php $discount_price = $detail_product->price -
-                                        $detail_product->discount_amount; @endphp
-                                        <del>{{$detail_product->price}}</del> {{$discount_price}}
-                                        @if($detail_product->country
-                                        == "myanmar")
-                                        Ks
-                                        @elseif($detail_product->country == "korea")
-                                        ₩
-                                        @else
-                                        $
-                                        @endif
-                                        @elseif($detail_product->discount_type == 2)
-                                        @php $discount_price = $detail_product->price - ( $detail_product->price *
-                                        ($detail_product->discount_amount / 100 )); @endphp
-                                        <del>{{$detail_product->price}}</del> {{$discount_price}}
-                                        @if($detail_product->country
-                                        == "myanmar")
-                                        Ks
-                                        @elseif($detail_product->country == "korea")
-                                        ₩
-                                        @else
-                                        $
-                                        @endif
-                                        @endif
-                                        @elseif($detail_product->product_type == 2)
                                         @php
-                                        $minPrice = $detail_product->variants->min('price');
-                                        $maxPrice = $detail_product->variants->max('price');
-                                        echo $minPrice . " ~ " . $maxPrice ;
+                                            $currencySymbol = match ($detail_product->country) {
+                                                'myanmar' => 'Ks',
+                                                'korea' => '₩',
+                                                default => '$',
+                                            };
+
+                                            if ($detail_product->product_type == 1) {
+                                                $price = $detail_product->price;
+                                               
+                                                if ($detail_product->discount_type == 1) {
+                                                    $discountPrice = $price - $detail_product->discount_amount;
+                                                    $priceDisplay = "<del>$price</del> $discountPrice";
+                                                } elseif ($detail_product->discount_type == 2) {
+                                                    $discountPrice = $price - ($price * ($detail_product->discount_amount / 100));
+                                                    $priceDisplay = "<del>$price</del> $discountPrice";
+                                                } else {
+                                                    $priceDisplay = $price;
+                                                }
+
+                                                echo $priceDisplay . " " . $currencySymbol;
+                                            } elseif ($detail_product->product_type == 2) {
+                                                $minPrice = $detail_product->variants->min('price');
+                                                $maxPrice = $detail_product->variants->max('price');
+                                                echo "$minPrice ~ $maxPrice $currencySymbol";
+                                            }
                                         @endphp
-                                        @if($detail_product->country == "myanmar")
-                                        Ks
-                                        @elseif($detail_product->country == "korea")
-                                        ₩
-                                        @else
-                                        $
-                                        @endif
-                                        @endif
                                     </span>
                                 </div>
                             </div>
+
 
                             @if($detail_product->variants->count() > 0)
                             <div class="product-variants">

@@ -43,7 +43,8 @@
                                                             ? $product->price - $product->discount_amount
                                                             : $product->price - ($product->price * ($product->discount_amount / 100));
                                                     @endphp
-                                                    <del>{{ $product->price }} $</del>
+                                                    <del>{{ $product->price }}    {{ $discount_price }}
+                                                    {{ $product->country == 'myanmar' ? 'Ks' : ($product->country == 'korea' ? '₩' : '$') }} </del>
                                                     {{ $discount_price }}
                                                     {{ $product->country == 'myanmar' ? 'Ks' : ($product->country == 'korea' ? '₩' : '$') }}
                                                 @endif
