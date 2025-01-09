@@ -25,7 +25,7 @@
         <nav aria-label="breadcrumb" class="breadcrumb-row">
             <ul class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><a href="/"> Home</a></li>
-                <li class="breadcrumb-item"><a href="/products"> Products</a></li>
+                <li class="breadcrumb-item"><a href="/products/{{$detail_product->country}}"> Products</a></li>
                 <li class="breadcrumb-item">{{$detail_product->name}}</li>
             </ul>
         </nav>
@@ -42,22 +42,21 @@
                                     <!-- Main Image Display -->
                                     <div class="swiper-slide">
                                         <div class="dz-media DZoomImage">
-                                            <a id="mainImageLink" class="mfp-link lg-item" href="{{ asset($detail_product->image) }}"
-                                                data-src="{{ asset($detail_product->image) }}">
-                                                <i class="feather icon-maximize dz-maximize top-right"></i>
+                                            <a id="mainImageLink" data-lightbox="product-zoom"
+                                                href="{{ asset($detail_product->image) }}">
+                                                <!-- <i class="feather icon-maximize dz-maximize top-right"></i> -->
                                             </a>
-                                    <!-- Main Image -->
-                                    <img id="mainImage" src="{{ asset($detail_product->image) }}" alt="image">
+                                            <!-- Main Image -->
+                                            <img id="mainImage" src="{{ asset($detail_product->image) }}" alt="image">
                                         </div>
                                     </div>
-                     
+
 
                                     <!-- Other Images -->
                                     @if(!empty($detail_product->images))
                                     <div class="swiper-slide">
                                         <div class="dz-media DZoomImage">
-                                            <a class="mfp-link lg-item" href="{{ asset($detail_product->image) }}"
-                                                data-src="{{ asset($detail_product->image) }}">
+                                            <a data-lightbox="product-zoom" href="{{ asset($detail_product->image) }}">
                                                 <i class="feather icon-maximize dz-maximize top-right"></i>
                                             </a>
                                             <img src="{{ asset($detail_product->image) }}" alt="image">
@@ -66,8 +65,7 @@
                                     @foreach($detail_product->images as $image)
                                     <div class="swiper-slide">
                                         <div class="dz-media DZoomImage">
-                                            <a class="mfp-link lg-item" href="{{ asset($image) }}"
-                                                data-src="{{ asset($image) }}">
+                                            <a data-lightbox="product-zoom" href="{{ asset($image) }}">
                                                 <i class="feather icon-maximize dz-maximize top-right"></i>
                                             </a>
                                             <img src="{{ asset($image) }}" alt="image">
@@ -85,7 +83,6 @@
                                     @if(!empty($detail_product->images))
                                     @foreach($detail_product->images as $image)
                                     <div class="swiper-slide">
-                                        <!-- Thumbnail Images with Click Event -->
                                         <img src="{{ asset($image) }}" alt="image"
                                             onclick="changeMainImage('{{ asset($image) }}')">
                                     </div>
@@ -114,14 +111,26 @@
                                     <div class="product-tag">
                                         <span class="badge bg-purple mb-2">Sale |
                                             @if($detail_product->discount_type == 1)
-                                            {{$detail_product->discount_amount}} Ks OFF
+                                            {{$detail_product->discount_amount}} @if($detail_product->country == "myanmar")
+                                        Ks
+                                        @elseif($detail_product->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif OFF
                                             @elseif($detail_product->discount_type == 2)
                                             {{$detail_product->discount_amount}} % OFF
                                             @endif
                                         </span>
                                     </div>
                                     @endif
-
+                                    @if($detail_product->pre_order == 1)
+                                    <div class="product-tag">
+                                        <span class="badge bg-purple mb-2">
+                                            Pre Order
+                                        </span>
+                                    </div>
+                                    @endif
                                     <h4 class="title mb-1"><a href="#">{{$detail_product->name}}</a></h4>
                                 </div>
                             </div>
@@ -133,30 +142,58 @@
                                 $truncatedDescription = $wordCount > 100 ? implode(' ', array_slice($words, 0, 100)) .
                                 '...' : $description;
                                 @endphp
-                                {{$detail_product->short_description}}
+                                {!! $detail_product->short_description !!}
                             </p>
                             <div class="meta-content m-b20 d-flex align-items-end">
                                 <div class="me-3">
                                     <label class="form-label">Price</label>
+                                    <span id="product_country" style="display:none !important;">{{$detail_product->country}}</span>
                                     <span class="price-num" id="product-price">
                                         @if($detail_product->product_type == 1)
                                         @if($detail_product->discount_type == 0)
-                                        {{$detail_product->price}} Ks
+                                        {{$detail_product->price}} @if($detail_product->country == "myanmar")
+                                        Ks
+                                        @elseif($detail_product->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif
                                         @elseif($detail_product->discount_type == 1)
                                         @php $discount_price = $detail_product->price -
                                         $detail_product->discount_amount; @endphp
-                                        <del>{{$detail_product->price}}</del> {{$discount_price}} Ks
+                                        <del>{{$detail_product->price}}</del> {{$discount_price}} @if($detail_product->country
+                                        == "myanmar")
+                                        Ks
+                                        @elseif($detail_product->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif
                                         @elseif($detail_product->discount_type == 2)
                                         @php $discount_price = $detail_product->price - ( $detail_product->price *
                                         ($detail_product->discount_amount / 100 )); @endphp
-                                        <del>{{$detail_product->price}}</del> {{$discount_price}} Ks
+                                        <del>{{$detail_product->price}}</del> {{$discount_price}} @if($detail_product->country
+                                        == "myanmar")
+                                        Ks
+                                        @elseif($detail_product->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif
                                         @endif
                                         @elseif($detail_product->product_type == 2)
                                         @php
                                         $minPrice = $detail_product->variants->min('price');
                                         $maxPrice = $detail_product->variants->max('price');
-                                        echo $minPrice . " ~ " . $maxPrice . " Ks" ;
+                                        echo $minPrice . " ~ " . $maxPrice ;
                                         @endphp
+                                        @if($detail_product->country == "myanmar")
+                                        Ks
+                                        @elseif($detail_product->country == "korea")
+                                        ₩
+                                        @else
+                                        $
+                                        @endif
                                         @endif
                                     </span>
                                 </div>
@@ -173,7 +210,7 @@
                                     <div class="variant-group">
                                         <h5 class="variant-attribute-name">{{ $attributeName }}</h5>
                                         @foreach($variants as $variant)
-                                        @if($variant->stock != 0)
+                                        @if($variant->stock != 0 && $variant->status == 1)
                                         @php
                                         $varaint_product_price = $variant->price;
                                         $v_discount_type = $variant->discount_type;
@@ -234,8 +271,13 @@
                 </div>
 
                 <script>
+                // JavaScript function to change the main image and update Lightbox link
+                function changeMainImage(imageUrl) {
+                    document.getElementById('mainImage').src = imageUrl;
+                    document.getElementById('mainImageLink').href = imageUrl;
+                }
 
-                // Handle variant selection
+                // Variant selection event handler
                 document.querySelectorAll('.variant-option').forEach(button => {
                     button.addEventListener('click', function() {
                         button.querySelector('input').checked = true;
@@ -245,7 +287,16 @@
 
                         // Update product price based on selected variant
                         const variantPrice = button.getAttribute('data-price');
-                        document.getElementById('product-price').innerText = variantPrice + ' Ks';
+                        const countryName = document.getElementById("product_country").innerHTML;
+                        let currency = "$";
+                        if(countryName == "myanmar"){
+                            currency = "Ks";
+                        }else if(countryName == "korea"){
+                            currency = "₩";
+                        }else{
+                            currency = "$";
+                        }
+                        document.getElementById('product-price').innerText = variantPrice + currency;
 
                         // Set the selected variant ID in the hidden form field
                         document.getElementById('variant_id').value = button.querySelector('input')
@@ -254,12 +305,11 @@
                         // Update main image based on selected variant's image
                         const variantImage = button.getAttribute('data-image');
                         if (variantImage) {
-                            document.getElementById('mainImage').src = variantImage;
-                            document.getElementById('mainImageLink').href = variantImage;
-                           
+                            changeMainImage(variantImage);
                         }
                     });
                 });
+                
 
                 // Handle quantity increase and decrease
                 const quantityInput = document.getElementById('quantity');
@@ -335,9 +385,6 @@
                 <div class="left-content">
                     <h2 class="title mb-0">Related products</h2>
                 </div>
-                <a href="/products" class="text-secondary font-14 d-flex align-items-center gap-1">See all products
-                    <i class="icon feather icon-chevron-right font-18"></i>
-                </a>
             </div>
             <div class="swiper-btn-center-lr">
                 <div class="row">
@@ -404,27 +451,52 @@
                                         <h6 class="price" style="color:black !important;">
                                             @if($product->product_type == 1)
                                             @if($product->discount_type == 0)
-                                            {{$product->price}} Ks
+                                            {{$product->price}} @if($product->country == "myanmar")
+                                            Ks
+                                            @elseif($product->country == "korea")
+                                            ₩
+                                            @else
+                                            $
+                                            @endif
                                             @elseif($product->discount_type == 1)
                                             @php
                                             $discount_price = $product->price - $product->discount_amount;
                                             @endphp
                                             <del>{{$product->price}} </del>
-                                            {{$discount_price}} Ks
+                                            {{$discount_price}} @if($product->country == "myanmar")
+                                            Ks
+                                            @elseif($product->country == "korea")
+                                            ₩
+                                            @else
+                                            $
+                                            @endif
                                             @elseif($product->discount_type == 2)
                                             @php
                                             $discount_price = $product->price - ( $product->price * (
                                             $product->discount_amount / 100 ));
                                             @endphp
                                             <del>{{$product->price}} </del>
-                                            {{$discount_price}} Ks
+                                            {{$discount_price}} @if($product->country == "myanmar")
+                                            Ks
+                                            @elseif($product->country == "korea")
+                                            ₩
+                                            @else
+                                            $
+                                            @endif
                                             @endif
                                             @elseif($product->product_type == 2)
                                             @php
                                             $minPrice = $product->variants->min('price');
                                             $maxPrice = $product->variants->max('price');
-                                            echo $minPrice . " ~ " . $maxPrice . " Ks" ;
+                                            echo $minPrice . " ~ " . $maxPrice ;
                                             @endphp
+                                            @if($product->country == "myanmar")
+                                            Ks
+                                            @elseif($product->country == "korea")
+                                            ₩
+                                            @else
+                                            $
+                                            @endif
                                             @endif
 
                                         </h6>
@@ -433,7 +505,13 @@
                                     <div class="product-tag">
                                         <span class="badge badge-secondary">Sale |
                                             @if($product->discount_type == 1)
-                                            {{$product->discount_amount}} Ks OFF
+                                            {{$product->discount_amount}} @if($product->country == "myanmar")
+                                            Ks
+                                            @elseif($product->country == "korea")
+                                            ₩
+                                            @else
+                                            $
+                                            @endif OFF
                                             @elseif($product->discount_type == 2)
                                             {{$product->discount_amount}} % OFF
                                             @endif
