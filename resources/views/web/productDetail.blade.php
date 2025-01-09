@@ -25,7 +25,7 @@
         <nav aria-label="breadcrumb" class="breadcrumb-row">
             <ul class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><a href="/"> Home</a></li>
-                <li class="breadcrumb-item"><a href="/products"> Products</a></li>
+                <li class="breadcrumb-item"><a href="/products/{{$detail_product->country}}"> Products</a></li>
                 <li class="breadcrumb-item">{{$detail_product->name}}</li>
             </ul>
         </nav>
@@ -385,9 +385,9 @@
                 <div class="left-content">
                     <h2 class="title mb-0">Related products</h2>
                 </div>
-                <a href="/products" class="text-secondary font-14 d-flex align-items-center gap-1">See all products
+                <!-- <a href="/products" class="text-secondary font-14 d-flex align-items-center gap-1">See all products
                     <i class="icon feather icon-chevron-right font-18"></i>
-                </a>
+                </a> -->
             </div>
             <div class="swiper-btn-center-lr">
                 <div class="row">

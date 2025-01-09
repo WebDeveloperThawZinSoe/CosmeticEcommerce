@@ -18,7 +18,7 @@
             <h4 style="color: #007bff; font-size: 20px;">Order Summary</h4>
             <hr style="border: 0; border-top: 1px solid #dddddd;">
             <p><strong>Order Number:</strong> {{ $orderDetails['order']->order_number }}</p>
-            <p><strong>Total Price (Amount to Pay):</strong> {{ $orderDetails['order']->total_price }} Ks</p>
+            <p><strong>Total Price (Amount to Pay):</strong> {{ $orderDetails['order']->total_price }} </p>
         </div>
 
         <div style="margin-top: 20px;">
@@ -48,7 +48,7 @@
                                 echo "<del> $price </del> "  . ($price - ( $price * ($discount_amount / 100)) ) *  $cartItem->qty; 
                             }
                             ?>
-                            Ks
+                            
                         </td>
                     </tr>
                     @endforeach

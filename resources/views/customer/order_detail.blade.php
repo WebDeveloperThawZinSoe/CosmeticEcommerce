@@ -38,7 +38,14 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <h4>Payment Information </h4>
-                    <p><strong>Total Price:</strong> {{ $order->total_price }} Ks</p>
+                    <p><strong>Total Price:</strong> {{ $order->total_price }} 
+                        @if($order->country == "myanmar")
+                            Ks
+                            @elseif($order->country == "korea")
+                            ₩
+                            @else
+                            $
+                            @endif</p>
                     <p><strong>Payment Method:</strong>
                         @if($order->payment_method == 0)
                         {{ 'Cash On Delivery' }}
@@ -106,8 +113,15 @@
                             } elseif ($DiscountType == 2) { 
                             $finalPrice = max(0, $ProductPrice - ($ProductPrice * ($DiscountAmount / 100))); 
                             }
-
-                            echo number_format($finalPrice, 2) . " Ks";
+                            $currency = "$";
+                            if($order->country == "myanmar"){
+                                $currency = "Ks";
+                            }elseif($order->country == "korea"){
+                                $currency = "₩";
+                            }else{
+                                $currency = "$";
+                            }
+                            echo number_format($finalPrice, 2) . " $currency";
                             ?>
 
 
@@ -116,7 +130,7 @@
                                 <?php 
                                 $qty = $detail->qty;
                                 $finalPrice = $finalPrice *  $qty;
-                                echo number_format($finalPrice, 2) . " Ks" ; 
+                                echo number_format($finalPrice, 2) . " $currency" ; 
                             ?>
                             </td>
                         </tr>

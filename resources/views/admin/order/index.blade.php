@@ -78,9 +78,7 @@
                                             <h6>Phone: {{ $order->user->phone }}</h6>
                                             <h6>Orders Count:
                                                 {{ App\Models\Order::where("user_id", $order->user->id)->count() }}</h6>
-                                            <h6>Orders Total Amount:
-                                                {{ number_format(App\Models\Order::where("user_id", $order->user->id)->sum("total_price"), 1) }}
-                                                Ks</h6>
+                                           
                                             <table class="table">
                                                 <thead>
                                                     <tr>
@@ -93,13 +91,22 @@
                                                     @php
                                                     $userOrders = App\Models\Order::where("user_id", $order->user->id)
                                                     ->orderBy("id", "desc")
-                                                    ->get(["order_number", "total_price", "created_at"]);
+                                                    ->get(["order_number", "total_price", "created_at","country"]);
                                                     @endphp
 
                                                     @foreach($userOrders as $userOrder)
                                                     <tr>
                                                         <td>{{ $userOrder->order_number }}</td>
-                                                        <td>{{ number_format($userOrder->total_price, 1) }} Ks</td>
+                                                        <td>{{ number_format($userOrder->total_price, 1) }} 
+                                                            
+                                                        @if($userOrder->country == "myanmar")
+                                                            Ks
+                                                            @elseif($userOrder->country == "korea")
+                                                            ₩
+                                                            @else
+                                                            $
+                                                            @endif
+                                                        </td>
                                                         <td>{{ $userOrder->created_at->format('F j, Y') }}</td>
                                                     </tr>
                                                     @endforeach

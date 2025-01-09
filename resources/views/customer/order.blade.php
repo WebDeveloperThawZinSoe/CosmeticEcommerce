@@ -8,7 +8,14 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">Order #{{ $order->order_number }}</h5>
-                        <p class="card-text">Total Price: {{ $order->total_price }} Ks</p>
+                        <p class="card-text">Total Price: {{ $order->total_price }} @if($order->country ==
+                            "myanmar")
+                            Ks
+                            @elseif($order->country == "korea")
+                            ₩
+                            @else
+                            $
+                            @endif</p>
                         <p class="card-text">
                             Status: 
                             @if($order->status == 1)

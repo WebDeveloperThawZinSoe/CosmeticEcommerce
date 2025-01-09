@@ -12,7 +12,7 @@
         <h1 style="color: #28a745; font-size: 24px;">Order Confirmed</h1>
         <p style="font-size: 16px;">Dear {{ $order->user->name ?? 'Customer' }},</p>
         <p style="font-size: 16px;">Your order <strong>#{{ $order->order_number }}</strong> has been confirmed. We are processing it now.</p>
-        <p style="font-size: 16px;">Total Amount: <strong>{{ $order->total_price }}</strong> Ks</p>
+        <p style="font-size: 16px;">Total Amount: <strong>{{ $order->total_price }}</strong> </p>
         <p style="font-size: 16px;">Thank you for your purchase!</p>
 
         <div style="margin-top: 20px;">

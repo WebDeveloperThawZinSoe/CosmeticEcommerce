@@ -13,7 +13,7 @@
             });
             </script>
             @endif
-
+        
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -86,7 +86,15 @@
                                     <tr>
                                         <td>{{++$key}}</td>
                                         <td>{{$latest_order->order_number}}</td>
-                                        <td>{{$latest_order->total_price}} Ks</td>
+                                        <td>{{$latest_order->total_price}} 
+                                        @if($latest_order->country == "myanmar")
+                            Ks
+                            @elseif($latest_order->country == "korea")
+                            ₩
+                            @else
+                            $
+                            @endif
+                                        </td>
                                         <td>
                                             <?php 
                                             if($latest_order->status == 1){

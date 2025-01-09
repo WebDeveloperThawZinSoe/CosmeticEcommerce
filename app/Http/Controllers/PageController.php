@@ -173,10 +173,14 @@ class PageController extends Controller
             "ProductCategories" => ProductCategory::inRandomOrder()->limit(10)->get(),
             "brands" => Brand::inRandomOrder()->limit(10)->get(),
             "brands_detail" => Brand::find($id),
-            "products" => Product::with(['category', 'subCategory', 'variants'])
-                ->where("brand_id",$id)->where("stock","!=",0)->where("status",1)
+            "mm_products" => Product::with(['category', 'subCategory', 'variants'])
+                ->where("brand_id",$id)->where("stock","!=",0)->where("status",1)->where("country","myanmar")
                 ->orderBy("id", "desc")
-                ->paginate(18) // Paginate with 18 items per page
+                ->paginate(18), 
+            "sk_products" => Product::with(['category', 'subCategory', 'variants'])
+                ->where("brand_id",$id)->where("stock","!=",0)->where("status",1)->where("country","korea")
+                ->orderBy("id", "desc")
+                ->paginate(18), 
         ];        
         return view("web.brandDetail")->with($data);
     }
@@ -187,10 +191,14 @@ class PageController extends Controller
             "ProductCategories" => ProductCategory::inRandomOrder()->limit(10)->get(),
             "ProductCategory_detail" => ProductCategory::find($id),
             "brands" => Brand::inRandomOrder()->limit(10)->get(),
-            "products" => Product::with(['category', 'subCategory', 'variants'])
-                ->where("category_id",$id)->where("stock","!=",0)->where("status",1)
+            "mm_products" => Product::with(['category', 'subCategory', 'variants'])
+                ->where("category_id",$id)->where("stock","!=",0)->where("country","myanmar")->where("status",1)
                 ->orderBy("name", "asc")
-                ->paginate(18) // Paginate with 18 items per page
+                ->paginate(18),
+            "sk_products" => Product::with(['category', 'subCategory', 'variants'])
+                ->where("category_id",$id)->where("stock","!=",0)->where("country","korea")->where("status",1)
+                ->orderBy("name", "asc")
+                ->paginate(18)
         ];        
         return view("web.categoryDetail")->with($data);
     }
