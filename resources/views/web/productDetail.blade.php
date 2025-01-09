@@ -192,41 +192,42 @@
                                     $groupedVariants = $detail_product->variants->groupBy('attribute_name');
                                     @endphp
                                     @foreach($groupedVariants as $attributeName => $variants)
-                                    <div class="variant-group">
-                                        <h5 class="variant-attribute-name">{{ $attributeName }}</h5>
-                                        @foreach($variants as $variant)
-                                        @if($variant->stock != 0 && $variant->status == 1)
-                                        @php
-                                        $varaint_product_price = $variant->price;
-                                        $v_discount_type = $variant->discount_type;
-                                        $v_discount_amount = $variant->discount_amount;
-                                        if($v_discount_type == 0){
-                                            $varaint_product_price = $varaint_product_price;
-                                            $show_price = $varaint_product_price;
-                                        }elseif($v_discount_type == 1){
-                                            $varaint_product_price = $varaint_product_price - $v_discount_amount ;
-                                            $show_price = "<del> $variant->price </del> $varaint_product_price";
-                                        }elseif($v_discount_type == 2){
-                                            $varaint_product_price = $varaint_product_price - ( $varaint_product_price * ($v_discount_amount/100) ) ;
-                                            $show_price = "<del> $variant->price </del> $varaint_product_price";
-                                        }
+                                        <div class="variant-group">
+                                            <h5 class="variant-attribute-name">{{ $attributeName }}</h5>
+                                            @foreach($variants as $variant)
+                                                @if($variant->stock > 0 && $variant->status == 1)
+                                                    @php
+                                                        $variantProductPrice = $variant->price;
+                                                        $discountType = $variant->discount_type;
+                                                        $discountAmount = $variant->discount_amount;
 
-                                       
-                                        @endphp
+                                                        switch ($discountType) {
+                                                            case 1: // Fixed amount discount
+                                                                $variantProductPrice -= $discountAmount;
+                                                                $showPrice = "<del>{$variant->price}</del> $variantProductPrice";
+                                                                break;
+                                                            case 2: // Percentage discount
+                                                                $variantProductPrice -= $variantProductPrice * ($discountAmount / 100);
+                                                                $showPrice = "<del>{$variant->price}</del> $variantProductPrice";
+                                                                break;
+                                                            default: // No discount
+                                                                $showPrice = $variantProductPrice;
+                                                                break;
+                                                        }
+                                                    @endphp
 
-                                        <label class="btn btn-outline-secondary variant-option"
-                                            data-price="{{ $varaint_product_price }}"
-                                            data-image="{{ asset($variant->image) }}"
-                                            data-showPrice ="{{$show_price}}"
-                                            >
-                                            <input type="radio" name="product_variant" value="{{ $variant->id }}"
-                                                class="d-none">
-                                            {{ $variant->attribute_value ?? 'Default' }}
-                                        </label>
-                                        @endif
-                                        @endforeach
-                                    </div>
+                                                    <label class="btn btn-outline-secondary variant-option"
+                                                        data-price="{{ $variantProductPrice }}"
+                                                        data-image="{{ asset($variant->image) }}"
+                                                        data-showPrice="{{ $showPrice }}">
+                                                        <input type="radio" name="product_variant" value="{{ $variant->id }}" class="d-none">
+                                                        {{ $variant->attribute_value ?? 'Default' }}
+                                                    </label>
+                                                @endif
+                                            @endforeach
+                                        </div>
                                     @endforeach
+
                                 </div>
                             </div>
                             @endif
