@@ -11,7 +11,7 @@
                     <ul class="breadcrumb d-inline-block"
                         style="background-color: rgba(0, 0, 0, 0.6); padding: 10px; border-radius: 5px;">
                         <li class="breadcrumb-item"><a href="/" class="text-white">Home</a></li>
-                        <li class="breadcrumb-item"><a href="/brands" class="text-white">Brands</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="text-white">Brands</a></li>
                         <li class="breadcrumb-item text-white">{{$brands_detail->name}}</li>
                     </ul>
                 </nav>
@@ -24,8 +24,9 @@
         <div class="container">
 
             <div class="row">
-                @include("web.product_filter")
-                <div class="col-xl-9 col-lg-12">
+                
+                <div class="col-xl-12 col-lg-12">
+                    @if($mm_products != null)
                     <div class="row">
                       
                         <div class="row gx-xl-4 g-3 mb-xl-0 mb-md-0 mb-3">
@@ -162,7 +163,8 @@
                     </div>
 
                     <hr>
-
+                    @endif
+                    @if($sk_products != null)
                     <div class="row">
                       
                         <div class="row gx-xl-4 g-3 mb-xl-0 mb-md-0 mb-3">
@@ -297,6 +299,7 @@
                             </nav>
                         </div>
                     </div>
+                    @endif
                 </div>
                
             </div>

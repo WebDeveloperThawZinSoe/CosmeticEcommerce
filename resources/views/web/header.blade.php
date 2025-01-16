@@ -22,7 +22,7 @@ $generalSettings = App\Models\GeneralSetting::whereIn('name', [
                     $logo = App\Models\GeneralSetting::where("name","logo")->first();
                     $generalSettings = App\Models\GeneralSetting::whereIn('name', [
                     'about_us', 'how_to_sell_us', 'phone_number_1', 'phone_number_2', 'phone_number_3',
-                    'email_1', 'email_2', 'email_3', 'facebook', 'telegram','address', 'discord' , 'viber' , 'skype'
+                    'email_1', 'email_2', 'email_3', 'facebook', 'telegram','address', 'discord','ig','mm_delivery','sk_delivery' , 'viber' , 'skype'
                     ])->pluck('value', 'name');
                     @endphp
                     @if(isset($generalSettings['address']) && $generalSettings['address'] != null)
@@ -252,16 +252,17 @@ $generalSettings = App\Models\GeneralSetting::whereIn('name', [
                     </div>
                     <ul class="nav navbar-nav dark-nav">
                         <li><a href="/">Home</a></li>
-                        <li class="sub-menu sub-menu-down"><a href="javascript:void(0);"><span>Products For </span></a>
+                        <!-- <li class="sub-menu sub-menu-down"><a href="javascript:void(0);"><span>Products For </span></a>
 								<ul class="sub-menu">
 									<li><a href="/products/myanmar">Myanmar</a></li>
 									<li><a href="/products/korea">Korea</a></li>
 								</ul>
-							</li>
+							</li> -->
                       
                         <li><a href="/brands">Brands</a></li>
-                        <li><a href="/faq">FAQ</a></li>
-                        <li><a href="/order_track">Track</a></li>
+                        <li><a href="/brands/99999">Other Product</a></li>
+                        <!-- <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/order_track">Track</a></li> -->
                         <li><a href="/contact-us">Contact</a></li>
                     </ul>
                     <div class="dz-social-icon">
@@ -286,6 +287,9 @@ $generalSettings = App\Models\GeneralSetting::whereIn('name', [
                             @endif
                             @if($discord = $generalSettings->get('discord'))
                             <li><a class="fab fa-discord" target="_blank" href="/{{$discord}}"></a></li>
+                            @endif
+                            @if($ig = $generalSettings->get('ig'))
+                            <li><a class="fab fa-instagram" target="_blank" href="/{{$ig}}"></a></li>
                             @endif
                         </ul>
                     </div>

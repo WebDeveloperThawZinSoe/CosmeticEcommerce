@@ -37,9 +37,9 @@ class PageController extends Controller
     
     //index
     public function index(){
-        $Latest_products = Product::with(['category', 'subCategory', 'variants'])
-        ->where("stock","!=",0)->where("status",1)->orderBy("id", "desc")
-        ->limit(8)->get();
+        $Latest_products = Product::inRandomOrder()->with(['category', 'subCategory', 'variants'])
+        ->where("stock","!=",0)->where("status",1)
+        ->limit(20)->get();
         $brands =   Brand::inRandomOrder()->limit(6)->get();
         return view("web.index",compact("Latest_products","brands"));
     }
@@ -103,6 +103,7 @@ class PageController extends Controller
     }
 
     public function customerFeedbackStore(Request $request) {
+        // dd($request);
         // Validate input fields
         $request->validate([
             'title' => 'required|string|max:255',
@@ -163,8 +164,43 @@ class PageController extends Controller
 
     //products
     public function brands(){
-        $brands = Brand::orderBy("id", "desc")->get();
-        return view("web.brand",compact("brands"));
+        $country = null;
+        $brands = Brand::orderBy("name", "asc")->get();
+        return view("web.brand",compact("brands","country"));
+    }
+
+    //brandCountry
+    public function brandCountry($country){
+        $brands = Brand::orderBy("name", "asc")->get();
+        return view("web.brand",compact("brands","country"));
+    }
+
+    //brandCountryDetail
+    public function brandCountryDetail($country,$id){
+        if($country == "myanmar"){
+            $data = [
+                "ProductCategories" => ProductCategory::inRandomOrder()->limit(10)->get(),
+                "brands" => Brand::inRandomOrder()->limit(10)->get(),
+                "brands_detail" => Brand::find($id),
+                "mm_products" => Product::with(['category', 'subCategory', 'variants'])
+                    ->where("brand_id",$id)->where("stock","!=",0)->where("status",1)->where("country","myanmar")
+                    ->orderBy("id", "desc")
+                    ->paginate(18), 
+                "sk_products" => null, 
+            ];
+        }else{
+            $data = [
+                "ProductCategories" => ProductCategory::inRandomOrder()->limit(10)->get(),
+                "brands" => Brand::inRandomOrder()->limit(10)->get(),
+                "brands_detail" => Brand::find($id),
+                "mm_products" => null, 
+                "sk_products" => Product::with(['category', 'subCategory', 'variants'])
+                    ->where("brand_id",$id)->where("stock","!=",0)->where("status",1)->where("country","korea")
+                    ->orderBy("id", "desc")
+                    ->paginate(18), 
+            ];  
+        }
+        return view("web.brandDetail")->with($data);
     }
 
     //brandDetail

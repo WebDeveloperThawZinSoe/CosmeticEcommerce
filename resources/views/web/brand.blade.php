@@ -34,11 +34,16 @@
                     <div class="container">
                         <div class="row">
                             @foreach($brands as $brand)
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-4 wow fadeInUp" data-wow-delay="0.1s">
+                                @if($country != null)
+                                <a href="/brands/{{$country}}/{{$brand->id}}">
+                                @else 
                                 <a href="/brands/{{$brand->id}}">
+                                @endif
                                     <div class="gift-bx">
                                         <div class="gift-media">
-                                            <img src="{{ asset('images/brands/' . $brand->icon) }}" loading="lazy" alt="">
+                                        <p style="font-weight:bold">{{$brand->name}}</p>
+                                            <!-- <img src="{{ asset('images/brands/' . $brand->icon) }}" loading="lazy" alt=""> -->
                                         </div>
                                     </div>
                                 </a>

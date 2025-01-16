@@ -99,6 +99,34 @@
         </div>
 
 
+        <div class="form-group mb-3">
+            <label for="ig">IG</label>
+            <input type="text" class="form-control" name="ig" id="ig"
+                value="{{ $generalSettings['ig']->value ?? '' }}" placeholder="instagram">
+        </div>
+
+
+        <div class="form-group mb-3">
+            <label for="address">Address</label>
+            <textarea type="text" class="form-control" name="address" id="address"
+                 placeholder="Address">{{ $generalSettings['address']->value ?? '' }}</textarea>
+        </div>
+
+
+        <div class="form-group mb-3">
+            <label for="m_delivery">Myanmar Delivery</label>
+            <textarea type="text" class="form-control" name="mm_delivery" id="mm_delivery"
+                 placeholder="Address">{{ $generalSettings['mm_delivery']->value ?? '' }}</textarea>
+        </div>
+
+
+        <div class="form-group mb-3">
+            <label for="s_delivery">Korea Address</label>
+            <textarea type="text" class="form-control" name="sk_delivery" id="sk_delivery"
+                 placeholder="Address">{{ $generalSettings['sk_delivery']->value ?? '' }}</textarea>
+        </div>
+
+
 
         <button type="submit" class="btn btn-primary">Update Settings</button>
     </form>

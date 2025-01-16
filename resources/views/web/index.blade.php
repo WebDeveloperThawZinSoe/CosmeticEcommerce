@@ -1,78 +1,6 @@
 @extends('web.master')
 @section('body')
-<style>
-@media (max-width: 768px) {
-    #carouselExample .carousel-item img {
-        height: 300px;
-        /* Adjust height as needed */
-        object-fit: cover;
-        /* Ensures the image covers the set height */
-    }
-}
 
-@media (min-width: 768px) {
-    #carouselExample .carousel-item img {
-        height: 500px;
-        /* Adjust height as needed */
-        object-fit: cover;
-        /* Ensures the image covers the set height */
-    }
-}
-</style>
-<style>
-.shop-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 350px;
-    /* Adjust as needed */
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 15px;
-}
-
-.shop-card .dz-media {
-    flex: 0 0 auto;
-    text-align: center;
-    height: 180px;
-    /* Adjust height for images */
-    overflow: hidden;
-}
-
-.shop-card .dz-media img {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: cover;
-    /* Ensures images fit well */
-}
-
-.shop-card .dz-content {
-    flex: 1 1 auto;
-    text-align: center;
-    margin-top: 10px;
-}
-
-.shop-card .dz-content .title {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.shop-card .dz-content .price {
-    font-size: 14px;
-    color: #333;
-    margin-top: 5px;
-}
-
-.product-tag {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 1;
-}
-</style>
 <div class="page-content bg-white">
     @php
     $photos = App\Models\Gallery::orderBy("sort","desc")->get();
@@ -99,36 +27,38 @@
         <div class="container">
             <div class="section-head style-2 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="left-content">
-                    <h2 class="title">Choose Your Nation's Products</h2>
-                    <p>Click on a flag to explore the products from Myanmar or Korea.</p>
+                    <!-- <h2 class="title">Choose Your Nation's Products</h2>
+                    <p>Click on a flag to explore the products from Myanmar or Korea.</p> -->
                 </div>
 
             </div>
             <div class="row justify-content-center">
-               
+
                 <div class="col-xl-6 col-lg-6 order-lg-1 order-2 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="dz-card style-1 d-lg-block d-md-flex d-sm-flex d-block">
                         <div class="dz-media w-100">
-                        <a href="/products/myanmar">
-                            <img src="{{asset('mm.png')}}" alt="">
+                            <a href="/brand/myanmar">
+                                <img src="{{asset('mm.png')}}" alt="">
+                                <p style="font-weight:bold;text-align:center">For Myanmar Customer</p>
                             </a>
                         </div>
 
                     </div>
                 </div>
-                
-                
+
+
                 <div class="col-xl-6 col-lg-6 order-lg-2 order-1">
                     <div class="dz-card style-1 d-lg-block d-md-flex d-sm-flex d-block">
                         <div class="dz-media w-100">
-                        <a href="/products/korea">
-                            <img src="{{asset('sk.png')}}" alt="">
+                            <a href="/brand/korea">
+                                <img src="{{asset('sk.png')}}" alt="">
+                                <p style="font-weight:bold;text-align:center">For Korea Customer</p>
                             </a>
                         </div>
 
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </section>
@@ -138,20 +68,10 @@
 
 
     <!-- Recommend Section Start -->
-    <section class="content-inner-1">
+    <!-- <section class="content-inner-1">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <!-- <div class="wow fadeInUp" data-wow-delay="0.3s">
-                        <h3 class="title">Our Latest products</h3>
-                        <div class="site-filters clearfix d-flex align-items-center">
-                            <a href="/products"
-                                class="product-link text-secondary font-14 d-flex align-items-center gap-1 text-nowrap">
-                                See all products
-                                <i class="icon feather icon-chevron-right font-18"></i>
-                            </a>
-                        </div>
-                    </div> -->
                     <div class="clearfix">
                         <ul id="masonry" class="row g-xl-4 g-3">
                             @foreach($Latest_products as $product)
@@ -251,16 +171,57 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Recommend Section End -->
 
 
+
+    <section class="content-inner">
+        <div class="container">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    @foreach($Latest_products as $product)
+                    <div class="swiper-slide">
+                        <a href="/products/{{$product->id}}/detail">
+                            <img src="{{ asset($product->image) }}" loading="lazy" alt="Product">
+                        </a>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new Swiper('.mySwiper', {
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            slidesPerView: 4, // Default (desktop)
+            spaceBetween: 20,
+            breakpoints: {
+                1024: {
+                    slidesPerView: 4, // Desktop
+                },
+                768: {
+                    slidesPerView: 3, // Tablets (show 3 products)
+                },
+                480: {
+                    slidesPerView: 2, // Mobile (show 2 products)
+                }
+            }
+        });
+    });
+    </script>
 
 
 
 
     <!-- Feature Box -->
-    <section class="content-inner">
+    <!-- <section class="content-inner">
         <div class="container">
             <h2>Some Brands On Our Plantform</h2>
             <br>
@@ -280,7 +241,7 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Feature Box End -->
 
 

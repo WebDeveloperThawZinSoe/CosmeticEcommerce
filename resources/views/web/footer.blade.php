@@ -2,16 +2,16 @@
 $logo = App\Models\GeneralSetting::where("name","logo")->first();
 $generalSettings =  App\Models\GeneralSetting::whereIn('name', [
         'about_us', 'how_to_sell_us', 'phone_number_1', 'phone_number_2', 'phone_number_3',
-        'email_1', 'email_2', 'email_3', 'facebook', 'telegram', 'discord' , 'viber' , 'skype','address'
+        'email_1', 'email_2', 'email_3', 'facebook', 'telegram', 'discord' , 'viber' , 'skype','address','ig'
     ])->pluck('value', 'name');
 
 @endphp
 <footer class="site-footer footer-dark style-1" >
 		<!-- Footer Top -->
-		<div class="footer-top">
+		<div class="footer-top d-block d-md-none">
 			<div class="container">
 				<div class="row">
-					<div class="col-xl-4 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+					<div class="col-xl-12 col-md-12 col-sm-12 wow fadeInUp " data-wow-delay="0.1s">
 						<div class="widget widget_about me-2">
 							<div class="footer-logo logo-white">
 								
@@ -58,12 +58,15 @@ $generalSettings =  App\Models\GeneralSetting::whereIn('name', [
                             @if($discord = $generalSettings->get('discord'))
                             <li><a class="fab fa-discord" target="_blank" href="{{$discord}}"></a></li>
                             @endif
+							@if($ig = $generalSettings->get('ig'))
+                            <li><a class="fab fa-instagram" target="_blank" href="/{{$ig}}"></a></li>
+                            @endif
                         </ul>
                     </div>
 						</div>
 					</div>
 					
-					<div class="col-xl-2 col-md-3 col-sm-4 col-6 wow fadeInUp" data-wow-delay="0.3s">
+					<!-- <div class="col-xl-2 col-md-3 col-sm-4 col-6 wow fadeInUp" data-wow-delay="0.3s">
 						<div class="widget widget_services">
 							<h5 class="footer-title">Categories</h5>
 							<ul>
@@ -103,7 +106,7 @@ $generalSettings =  App\Models\GeneralSetting::whereIn('name', [
 							</ul>   
 						</div>
 					</div>
-				
+				 -->
 				</div>
 			</div>
 		</div>

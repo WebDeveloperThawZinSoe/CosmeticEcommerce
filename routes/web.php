@@ -172,6 +172,8 @@ Route::get("/products/category/{id}",[PageController::class,"productsCategory"])
 Route::get("/brands",[PageController::class,"brands"])->name("brands");
 Route::get("/products/{country}",[PageController::class,"productByCountry"]);
 Route::get("/brands/{id}",[PageController::class,"brandDetail"])->name("brandDetail");
+Route::get("/brands/{country}/{id}",[PageController::class,"brandCountryDetail"])->name("brandCountryDetail");
+Route::get("/brand/{country}",[PageController::class,"brandCountry"])->name("brandCountry");
 Route::Get("/goals/{name}",[PageController::class,"goalsPage"])->name("goalsPage");
 Route::get("/faq",[PageController::class,"faq"])->name("faq");
 Route::get("/sell-to-us",[PageController::class,"sellToUs"])->name("sell_to_us");

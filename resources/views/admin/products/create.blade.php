@@ -94,6 +94,7 @@
                             @foreach ($brands as $brand)
                             <option value="{{ $brand->id }}">{{ $brand->name }}</option>
                             @endforeach
+                            <option value="99999">Other Product</option>
                         </select>
                     </div>
 

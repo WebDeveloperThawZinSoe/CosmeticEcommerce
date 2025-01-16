@@ -154,8 +154,23 @@
                                 <img src="{{ asset('web/images/shop/shop-cart/icon-box/pic2.png') }}" alt="/">
                             </div>
                             <div class="icon-content">
-                                <h6 class="dz-title">Enjoy The Product</h6>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+                                @php
+                                $logo = App\Models\GeneralSetting::where("name","logo")->first();
+                                $generalSettings = App\Models\GeneralSetting::whereIn('name', [
+                                'about_us', 'how_to_sell_us', 'phone_number_1', 'phone_number_2', 'phone_number_3',
+                                'email_1', 'email_2', 'email_3', 'facebook', 'telegram','address',
+                                'discord','ig','mm_delivery','sk_delivery' , 'viber' , 'skype'
+                                ])->pluck('value', 'name');
+                                @endphp
+                                @if($card->country == "myanmar")
+
+                                <p>{{ $generalSettings['mm_delivery']}}</p>
+                                @elseif($card->country == "korea")
+
+                                <p>{{ $generalSettings['sk_delivery']}}</p>
+
+                                @endif
+
                             </div>
                         </div>
 

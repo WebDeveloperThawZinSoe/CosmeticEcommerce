@@ -30,7 +30,11 @@ class GeneralSettingController extends Controller
             'about_us',
             'how_to_sell_us',
             'logo',
-            'contact_us'
+            'contact_us',
+            'address',
+            'ig',
+            'mm_delivery',
+            'sk_delivery'
         ])->get()->keyBy('name');
 
         return view('admin.generalSetting.index', compact('generalSettings'));
@@ -57,7 +61,11 @@ class GeneralSettingController extends Controller
             'about_us',
             'how_to_sell_us',
             'logo',
-            'contact_us'
+            'contact_us',
+            'ig',
+            'address',
+            'mm_delivery',
+            'sk_delivery'
         ];
 
         foreach ($fields as $field) {

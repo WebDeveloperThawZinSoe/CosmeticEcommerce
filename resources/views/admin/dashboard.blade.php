@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-body">
                     <p>Welcome back {{Auth::user()->name}} </p>
-                    <p>Domain , Hosting , Technical Support Expire : <span class="badge badge-danger"> 18 November 2026 </span></p>
+                    <p>Domain , Hosting , Technical Support Expire : <span class="badge badge-danger"> 7 January 2026 </span></p>
                     <p>Developer Information : <a target="_blank" href="telto:09403077739">+959403077739</a> , <a target="_blank" href="mailto:thawzinsoe.dev@gmail.com">thawzinsoe.dev@gmail.com</a> , <a target="_blank" href="https://thawzinsoe.com">https://thawzinsoe.com</a> </p>
                     <!-- Add dashboard content here -->
                 </div>
@@ -99,28 +99,7 @@
         </div>
     </div>
     
-    <div class="row">
-        <!-- <div class="col-md-6">
-            <div class="card " style="padding-top:30px !important;">
-                <div class="card-header">
-                    <h3>Orders by Amount and Date</h3>
-                </div>
-                <div class="card-body">
-                    <canvas id="orderChart" width="100%" height="400px"></canvas>
-                </div>
-            </div>
-        </div> -->
-        <div class="col-md-12">
-            <div class="card " style="padding-top:30px !important;"> 
-                <div class="card-header">
-                    <h3>User Account Volume by Date</h3>
-                </div>
-                <div class="card-body">
-                    <canvas id="userChart" width="100%" height="400px"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
+
     
     <div class="row">
         <div class="col-md-6">
@@ -205,6 +184,29 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- <div class="col-md-6">
+            <div class="card " style="padding-top:30px !important;">
+                <div class="card-header">
+                    <h3>Orders by Amount and Date</h3>
+                </div>
+                <div class="card-body">
+                    <canvas id="orderChart" width="100%" height="400px"></canvas>
+                </div>
+            </div>
+        </div> -->
+        <div class="col-md-12">
+            <div class="card " style="padding-top:30px !important;"> 
+                <div class="card-header">
+                    <h3>User Account Volume by Date</h3>
+                </div>
+                <div class="card-body">
+                    <canvas id="userChart" width="100%" height="400px"></canvas>
                 </div>
             </div>
         </div>

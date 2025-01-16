@@ -180,9 +180,7 @@
                                         }
                                         @endphp
                                         <option value="">SELECT PAYMENT METHOD</option>
-                                        @auth
-                                        <option value="0">Cash On Delivery</option>
-                                        @endauth
+                                      
                                         @foreach($payment_methods as $payment_method)
                                         <option value="{{ $payment_method->id }}"
                                             {{ old('payment_method') == $payment_method->id ? 'selected' : '' }}>
@@ -191,6 +189,15 @@
                                         @endforeach
                                     </select>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Account Name -->
+                        <div class="col-md-12" id="paymentAccountNameField">
+                            <div class="form-group m-b25">
+                                <label class="label-title">Payment Account Name *</label>
+                                <input name="payment_account_name" class="form-control" id="paymentAccountNameInput"
+                                    value="{{ old('payment_account_name') }}">
                             </div>
                         </div>
 
@@ -213,14 +220,7 @@
                             </div>
                         </div>
 
-                        <!-- Payment Account Name -->
-                        <div class="col-md-12" id="paymentAccountNameField">
-                            <div class="form-group m-b25">
-                                <label class="label-title">Payment Account Name *</label>
-                                <input name="payment_account_name" class="form-control" id="paymentAccountNameInput"
-                                    value="{{ old('payment_account_name') }}">
-                            </div>
-                        </div>
+                      
                         <!-- Note -->
                         <div class="col-md-12 m-b25">
                             <div class="form-group">
@@ -342,15 +342,39 @@
                 </tr>
             </tbody>
         </table>
+        <hr>
+        <div class="icon-bx-wraper style-4 m-b30">
+                            <div class="icon-bx">
+                                <img src="{{ asset('web/images/shop/shop-cart/icon-box/pic2.png') }}" alt="/">
+                            </div>
+                            <div class="icon-content">
+                                @php
+                                $logo = App\Models\GeneralSetting::where("name","logo")->first();
+                                $generalSettings = App\Models\GeneralSetting::whereIn('name', [
+                                'about_us', 'how_to_sell_us', 'phone_number_1', 'phone_number_2', 'phone_number_3',
+                                'email_1', 'email_2', 'email_3', 'facebook', 'telegram','address',
+                                'discord','ig','mm_delivery','sk_delivery' , 'viber' , 'skype'
+                                ])->pluck('value', 'name');
+                                @endphp
+                                @if($card->country == "myanmar")
 
+                                <p>{{ $generalSettings['mm_delivery']}}</p>
+                                @elseif($card->country == "korea")
+
+                                <p>{{ $generalSettings['sk_delivery']}}</p>
+
+                                @endif
+
+                            </div>
+                        </div>
         <p class="text">
             Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our
-            <a href="javascript:void(0);">privacy policy.</a>
+            privacy policy.
         </p>
 
         <div class="form-group">
             <div class="custom-control custom-checkbox d-flex m-b15">
-                <input required type="checkbox" class="form-check-input" id="basic_checkbox_3">
+                <input required type="checkbox" checked class="form-check-input" id="basic_checkbox_3">
                 <label class="form-check-label" for="basic_checkbox_3">I have read and agree to the website terms and conditions</label>
             </div>
         </div>

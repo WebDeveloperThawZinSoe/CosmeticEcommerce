@@ -26,7 +26,7 @@
             </div>
         @endif
 
-        <h4 class="card-title">Orders List</h4>
+        <h4 class="card-title">Customer Feedback List</h4>
 
         <div class="m-t-25">
             <table id="data-table" class="table">
@@ -46,9 +46,17 @@
                             <td>{{++$key}}</td>
                             <td>{{$data->title}}</td>
                             <td>{{$data->about}}</td>
-                            <td><a href="{{asset('images/feedback/')}}/{{$data->image}}" target="_blank" ><img style="width:100px;height:100px" src="{{asset('images/feedback/')}}/{{$data->image}}" alt="Image"></a></td>
-                            <td>{{$data->created_at}}</td>
-                        </tr>
+                            <td>
+                                @if(!empty($data->image))
+                                    <a href="{{ asset('images/feedback/' . $data->image) }}" target="_blank">
+                                        <img style="width:100px; height:100px;" src="{{ asset('images/feedback/' . $data->image) }}" alt="Image">
+                                    </a>
+                                @else
+                                    No Image
+                                @endif
+                            </td>
+                            <td>{{ $data->created_at }}</td>
+                            </tr>
                     @endforeach
                 </tbody>
             </table>

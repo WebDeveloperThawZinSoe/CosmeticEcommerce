@@ -22,6 +22,7 @@ class PaymentMethodController extends Controller
             'account_no' => 'required|string|max:255',
             'account_name' => 'required|string|max:255',
             'icon' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            "country" => "required"
         ]);
 
         $data = $request->all();
@@ -45,6 +46,7 @@ class PaymentMethodController extends Controller
             'account_no' => 'required|string|max:255',
             'account_name' => 'required|string|max:255',
             'icon' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            "country" => "required"
         ]);
 
         $paymentMethod = PaymentMethod::find($id);

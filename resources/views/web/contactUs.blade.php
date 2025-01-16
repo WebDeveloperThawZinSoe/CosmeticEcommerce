@@ -55,10 +55,27 @@ $contact_image = $generalSettings['contact_image'] ?? "";
                 <div class="col-lg-6">
                     <div class="contact-area1 style-1 m-r20 m-md-r0 wow fadeInUp" data-wow-delay="0.5s">
                         <form action="{{ url('/customer_feedback') }}" method="POST" enctype="multipart/form-data"
-                            class="dz-form dzForm">
+                           >
                             @csrf
                             <div class="dzFormMsg"></div>
+                           
+                            <div class="form-group">
+                                <label for="title" class="form-label">Title <span class="required">*</span></label>
+                                <input required type="text" class="form-control" name="title" id="title">
+                            </div>
 
+                            <div class="form-group">
+                                <label for="about" class="form-label">Message <span
+                                        class="required">*</span></label>
+                                <textarea name="about" rows="4" required class="form-control m-b10"
+                                    id="about"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="image" class="form-label">Upload Image</label>
+                                <input type="file" name="image" id="image" class="form-control">
+                            </div> 
+<!-- 
                             <div class="form-group">
                                 <label for="dzName" class="form-label">Your Name <span class="required">*</span></label>
                                 <input required type="text" class="form-control" name="dzName" id="dzName">
@@ -86,7 +103,7 @@ $contact_image = $generalSettings['contact_image'] ?? "";
                             <div class="form-group">
                                 <label for="image" class="form-label">Upload Image</label>
                                 <input type="file" name="image" id="image" class="form-control">
-                            </div>
+                            </div> -->
                             <br>
                             @auth
                             <button type="submit" class="btn w-100 btn-secondary btnhover">SUBMIT</button>
@@ -105,11 +122,12 @@ $contact_image = $generalSettings['contact_image'] ?? "";
 
     <div class="content-inner-2 pt-0">
         <div style="padding:0; margin:0;">
-            <iframe
+            <!-- <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.893463310722!2d96.20124037461648!3d16.88669171703713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c193fbf369bd69%3A0x14d8bc571b3c87b4!2sApex%20Myanmar%20Web%20Service!5e1!3m2!1sen!2smm!4v1730125475061!5m2!1sen!2smm"
                 width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+            </iframe> -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1084087.649139205!2d125.00772207257788!3d37.55192672475736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca28b61c565cd%3A0x858aedb4e4ea83eb!2sSeoul%2C%20South%20Korea!5e1!3m2!1sen!2smm!4v1736743284369!5m2!1sen!2smm" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 </div>

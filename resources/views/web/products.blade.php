@@ -21,8 +21,8 @@
     <section class="content-inner-1 pt-3 z-index-unset">
         <div class="container">
             <div class="row">
-                @include('web.product_filter')
-                <div class="col-xl-9 col-lg-12">
+               
+                <div class="col-xl-12 col-lg-12">
                     <div class="row gx-xl-4 g-3 mb-3">
                         @foreach($products as $product)
                         <div class="col-6 col-xl-3 col-lg-3 col-md-4 col-sm-6">

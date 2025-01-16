@@ -92,7 +92,8 @@
                                     <div class="product-tag">
                                         <span class="badge bg-purple mb-2">Sale |
                                             @if($detail_product->discount_type == 1)
-                                            {{$detail_product->discount_amount}} @if($detail_product->country ==
+                                            {{$detail_product->discount_amount}} 
+                                            @if($detail_product->country ==
                                             "myanmar")
                                             Ks
                                             @elseif($detail_product->country == "korea")
@@ -130,7 +131,14 @@
                                 <div class="me-3">
                                     <label class="form-label">Price</label>
                                     <span id="product_country" style="display:none !important;">
-                                        {{ $detail_product->country }}
+                                        @if($detail_product->country ==
+                                            "myanmar")
+                                            Ks
+                                            @elseif($detail_product->country == "korea")
+                                            ₩
+                                            @else
+                                            $
+                                            @endif
                                     </span>
                                     <span class="price-num" id="product-price">
                                         @php
@@ -269,15 +277,15 @@
          
             /* Check The Discount and Calcuate the price */
          
-            let currency = "$";
-            if (countryName == "myanmar") {
-                currency = "Ks";
-            } else if (countryName == "korea") {
-                currency = "₩";
-            } else {
-                currency = "$";
-            }
-            document.getElementById('product-price').innerHTML = show_price + currency;
+            // let currency = "$";
+            // if (countryName == "myanmar") {
+            //     currency = "Ks";
+            // } else if (countryName == "korea") {
+            //     currency = "₩";
+            // } else {
+            //     currency = "$";
+            // }
+            document.getElementById('product-price').innerHTML = show_price + countryName;
 
             // Set the selected variant ID in the hidden form field
             document.getElementById('variant_id').value = button.querySelector('input')
